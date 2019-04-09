@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Stanley
+=======
+  - Door
+>>>>>>> 909ed4a3d034cfd0bd4d23d7f73590ba6a7860f1
   layers:
   - Default
   - TransparentFX
