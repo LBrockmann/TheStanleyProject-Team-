@@ -21,11 +21,12 @@ public class LAudioTrigger : MonoBehaviour
 
  void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Stanley") //If Stanley collides with your trigger,
+        if (other.tag == "Stanley" && Stanley.GetComponent<AudioSource>().isPlaying == false) //If Stanley collides with your trigger and the narrator isn't talking
         {
-            Stanley.GetComponent<AudioSource>().PlayOneShot(audioFile); //it'll play whichever audio clip you have dragged into this script on stanley's audiosource
-            Debug.Log("play: " + Stanley.GetComponent<AudioSource>().clip + Time.time); //Get this debug working
-            Destroy(this.gameObject);
+                Stanley.GetComponent<AudioSource>().PlayOneShot(audioFile); //it'll play whichever audio clip you have dragged into this script on stanley's audiosource
+                Debug.Log("play: " + Stanley.GetComponent<AudioSource>().clip + Time.time); //Get this debug working
+                Destroy(this.gameObject);
+
         }
     }
 }
