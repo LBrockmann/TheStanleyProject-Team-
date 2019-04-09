@@ -7,14 +7,13 @@ public class LAudioTrigger : MonoBehaviour
 
     public GameObject Stanley;
 
-    public AudioClip What;
-    // Start is called before the first frame update
+    public AudioClip audioFile;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -22,10 +21,10 @@ public class LAudioTrigger : MonoBehaviour
 
  void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Stanley")
+        if (other.tag == "Stanley") //If Stanley collides with your trigger,
         {
-            Stanley.GetComponent<AudioSource>().PlayOneShot(What);
-            Debug.Log("play: " + Stanley.GetComponent<AudioSource>().clip + Time.time);
+            Stanley.GetComponent<AudioSource>().PlayOneShot(audioFile); //it'll play whichever audio clip you have dragged into this script on stanley's audiosource
+            Debug.Log("play: " + Stanley.GetComponent<AudioSource>().clip + Time.time); //Get this debug working
             Destroy(this.gameObject);
         }
     }
