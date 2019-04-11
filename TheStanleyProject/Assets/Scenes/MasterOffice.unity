@@ -3162,8 +3162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   rotateSpeed: 6
-  gravity: 20
-  camera: {fileID: 0}
+  gravity: 400
 --- !u!143 &2081303890
 CharacterController:
   m_ObjectHideFlags: 0
