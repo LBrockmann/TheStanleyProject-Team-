@@ -183,7 +183,6 @@ MonoBehaviour:
   speed: 6
   rotateSpeed: 6
   gravity: 20
-  camera: {fileID: 0}
 --- !u!136 &343006476
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -272,7 +271,7 @@ GameObject:
   - component: {fileID: 653552300}
   - component: {fileID: 653552299}
   m_Layer: 0
-  m_Name: CloseDoor
+  m_Name: CloseDoortri
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
