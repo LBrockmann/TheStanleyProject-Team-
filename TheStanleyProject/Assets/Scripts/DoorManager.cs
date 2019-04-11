@@ -18,8 +18,10 @@ public class DoorManager : MonoBehaviour
     void Update()
     {
         //check
+        
         cRotation = transform.rotation;
         currentRotation = cRotation.eulerAngles.y;
+        print(currentRotation);
         if (currentRotation > 0 && currentRotation < 270)
         {
             opening = false;
