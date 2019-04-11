@@ -5,7 +5,7 @@ using UnityEngine;
 public class Raycast : MonoBehaviour
 {
     public float rayDistance = 1f;
-    public Camera player;
+    public Camera stanley;
 
     void Update()
     {
