@@ -12,7 +12,7 @@ public class CharacterMovement : MonoBehaviour
 {
     public float speed = 6.0f;
     public float rotateSpeed = 6.0f;
-    public float gravity = 20.0f;
+    private float gravity = 400.0f;
   
     private Vector3 moveDirection =  Vector3.zero;
     private CharacterController controller;
