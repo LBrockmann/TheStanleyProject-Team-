@@ -9,18 +9,23 @@ public class Raycast : MonoBehaviour
 
     void Update()
     {
-        Ray myRay = new Ray(transform.position, transform.forward);
+        //Ray myRay = new Ray(transform.position, transform.forward);
 
-        Debug.DrawRay(myRay.origin, myRay.direction * rayDistance, Color.blue);
+        Debug.DrawRay(stanley.transform.position, stanley.transform.forward * rayDistance, Color.blue);
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
+        if (Physics.Raycast(stanley.transform.position, stanley.transform.forward, out hit, rayDistance))
         {
-            if (hit.collider.CompareTag("insert tag here") && Input.GetKeyDown(KeyCode.E))
+            //print(hit.transform.tag);
+            if (Input.GetMouseButtonDown(0))
             {
-                //interact script
+                if (hit.transform.tag == "Door")
+                {
+                    print("hit door");
+                }
             }
+            
         }
     }
 }

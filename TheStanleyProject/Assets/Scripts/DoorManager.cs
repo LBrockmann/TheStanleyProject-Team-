@@ -6,6 +6,7 @@ public class DoorManager : MonoBehaviour
 {
     public bool opening = false;
     public bool closing = false;
+    public bool startOpen = false;
     public Vector3 rotationAxis = new Vector3(0,1,0);
     private float rotationSpeed = 1.0f;
     private float currentRotation;
@@ -13,13 +14,19 @@ public class DoorManager : MonoBehaviour
 
     void Start()
     {
+        if (startOpen)
+        {
+            opening = true;
+        }
     }
 
     void Update()
     {
         //check
+        
         cRotation = transform.rotation;
         currentRotation = cRotation.eulerAngles.y;
+        //print(currentRotation);
         if (currentRotation > 0 && currentRotation < 270)
         {
             opening = false;

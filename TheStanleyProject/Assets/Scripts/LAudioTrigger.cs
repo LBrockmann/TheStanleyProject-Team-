@@ -5,7 +5,7 @@ using UnityEngine;
 public class LAudioTrigger : MonoBehaviour
 {
 
-    public GameObject Stanley;
+    //public GameObject Stanley;  you dont need this bc u check for the tag and can access stanly when he enters the trigger
 
     public AudioClip audioFile;
 
@@ -21,10 +21,10 @@ public class LAudioTrigger : MonoBehaviour
 
  void OnTriggerEnter (Collider other)
     {
-        if (other.tag == "Stanley" && Stanley.GetComponent<AudioSource>().isPlaying == false) //If Stanley collides with your trigger and the narrator isn't talking
+        if (other.tag == "Stanley" && other.GetComponent<AudioSource>().isPlaying == false) //If Stanley collides with your trigger and the narrator isn't talking
         {
-                Stanley.GetComponent<AudioSource>().PlayOneShot(audioFile); //it'll play whichever audio clip you have dragged into this script on stanley's audiosource
-                Debug.Log("play: " + Stanley.GetComponent<AudioSource>().clip + Time.time); //Get this debug working
+                other.GetComponent<AudioSource>().PlayOneShot(audioFile); //it'll play whichever audio clip you have dragged into this script on stanley's audiosource
+                Debug.Log("play: " + other.GetComponent<AudioSource>().clip + Time.time); //Get this debug working
                 Destroy(this.gameObject);
 
         }
