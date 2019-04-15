@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2018757985202119498
+--- !u!1 &7026555454321988406
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,53 +8,53 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2018757985202119503}
-  - component: {fileID: 2018757985202119496}
-  - component: {fileID: 2018757985202119497}
+  - component: {fileID: 2473493446169549811}
+  - component: {fileID: 6809043921199224324}
+  - component: {fileID: 7608993393113932590}
   m_Layer: 0
-  m_Name: AudioTrigger
+  m_Name: DoorCloseTrigger
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2018757985202119503
+--- !u!4 &2473493446169549811
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018757985202119498}
+  m_GameObject: {fileID: 7026555454321988406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.82, y: 2.362015, z: 0.22}
+  m_LocalPosition: {x: -1.23, y: 1.75, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2018757985202119496
+--- !u!65 &6809043921199224324
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018757985202119498}
+  m_GameObject: {fileID: 7026555454321988406}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.4342966, z: 1.5813096}
-  m_Center: {x: 0, y: -0.7171483, z: 0.07030082}
---- !u!114 &2018757985202119497
+  m_Size: {x: 1, y: 3.9339416, z: 2.0436606}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7608993393113932590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018757985202119498}
+  m_GameObject: {fileID: 7026555454321988406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7805b8b4da9003846bd2f70ce30b5e09, type: 3}
+  m_Script: {fileID: 11500000, guid: b9ee6f7ccd5bd0a469ab8623d4c9631d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioFile: {fileID: 0}
+  doorHingeToClose: {fileID: 0}
