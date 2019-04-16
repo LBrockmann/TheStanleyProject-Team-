@@ -94,17 +94,11 @@ public class DoorManager : MonoBehaviour
 
     public void openDoor()
     {
-        if (currentRotation < 1)
-        {
-            opening = true;
-        }
+        opening = true;
     }
 
     public void closeDoor()
     {
-        if (currentRotation > 0 && currentRotation < 270)
-        {
-            closing = true;
-        }
+        closing = true;
     }
 }
