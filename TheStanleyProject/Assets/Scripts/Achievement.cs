@@ -80,7 +80,7 @@ public class Achievement: MonoBehaviour
 
     void Reset()
     {
-        achievementNoti.gameObject.SetActive(false);
+        //achievementNoti.gameObject.SetActive(false);
     }
    
     
