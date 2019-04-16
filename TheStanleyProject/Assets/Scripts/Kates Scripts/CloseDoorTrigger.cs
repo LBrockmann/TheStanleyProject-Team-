@@ -15,6 +15,9 @@ public class CloseDoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        doorManagerScript.closeDoor();
+        if (other.tag == "Stanley")
+        {
+            doorManagerScript.closeDoor();
+        }
     }
 }
