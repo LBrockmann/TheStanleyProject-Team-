@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    private bool opening = false;
-        private bool closing = false;
+    public bool opening = false;
+        public bool closing = false;
         public bool startOpen = false;
         private bool print = false;
         public bool turnedRight = false;

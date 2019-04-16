@@ -15,6 +15,10 @@ public class OpenDoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       doorManagerScript.openDoor();
+        if (other.tag == "Stanley")
+        {
+            doorManagerScript.openDoor();
+        }
+       
     }
 }
