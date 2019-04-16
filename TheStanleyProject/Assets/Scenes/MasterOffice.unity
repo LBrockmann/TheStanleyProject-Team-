@@ -2401,17 +2401,17 @@ PrefabInstance:
     - target: {fileID: 2160924438654227386, guid: d92b86016bc48694dafcd9913cd13a76,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2160924438654227386, guid: d92b86016bc48694dafcd9913cd13a76,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2160924438654227386, guid: d92b86016bc48694dafcd9913cd13a76,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2160924438654227386, guid: d92b86016bc48694dafcd9913cd13a76,
         type: 3}
@@ -4626,11 +4626,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door(OF2)
       objectReference: {fileID: 0}
-    - target: {fileID: 2160924438017004555, guid: d92b86016bc48694dafcd9913cd13a76,
-        type: 3}
-      propertyPath: m_Name
-      value: Door Hinge (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 2160924438654227386, guid: d92b86016bc48694dafcd9913cd13a76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4685,6 +4680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160924438017004555, guid: d92b86016bc48694dafcd9913cd13a76,
+        type: 3}
+      propertyPath: m_Name
+      value: Door Hinge (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2160924438017004553, guid: d92b86016bc48694dafcd9913cd13a76,
         type: 3}
