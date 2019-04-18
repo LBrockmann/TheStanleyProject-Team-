@@ -39,15 +39,15 @@ public class Raycast : MonoBehaviour
             
         }
 
-        if (_timer < 15)
+        if (_timer > 15)
         {
             _timer = 0;
             _clickCount = 0;
         }
 
-        if (_clickCount < clickCap)
+        if (_clickCount >= clickCap)
         {
-            if (_audioPlayed == false)
+            if (_audioPlayed == false && stanleyObject.GetComponent<AudioSource>().isPlaying == false)
             {
                 stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickAudioClip);
                 _audioPlayed = true;
