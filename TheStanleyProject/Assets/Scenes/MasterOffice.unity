@@ -9433,6 +9433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayDistance: 1
   stanley: {fileID: 2128680521}
+  _clickCount: 0
+  clickCap: 3
+  stanleyObject: {fileID: 2081303883}
+  clickAudioClip: {fileID: 8300000, guid: 4f3d2a34f8f94d24ebeddfee799c74c6, type: 3}
 --- !u!1 &2134137152
 GameObject:
   m_ObjectHideFlags: 0
