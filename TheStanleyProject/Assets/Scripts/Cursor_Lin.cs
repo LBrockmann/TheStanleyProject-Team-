@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cursor_Lin : MonoBehaviour
 {
-    private Vector2 mousePosition;
+    private Vector3 mousePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,7 @@ public class Cursor_Lin : MonoBehaviour
 
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = -4;
         transform.position= mousePosition;
     }
 }
