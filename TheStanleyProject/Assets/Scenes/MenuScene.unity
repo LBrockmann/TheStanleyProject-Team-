@@ -362,7 +362,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: f34da62a411754956a27f16f78ffa701, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -382,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496806341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 126.84, y: 34.66, z: -4.1}
+  m_LocalPosition: {x: 147.6, y: 34.66, z: -4}
   m_LocalScale: {x: 0.65060025, y: 0.65060025, z: 0.65060025}
   m_Children: []
   m_Father: {fileID: 0}
@@ -668,7 +668,6 @@ GameObject:
   - component: {fileID: 904144433}
   - component: {fileID: 904144432}
   - component: {fileID: 904144431}
-  - component: {fileID: 904144430}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -676,19 +675,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &904144430
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904144429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &904144431
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -742,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904144429}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 149.26, y: 34.65, z: 15}
+  m_LocalPosition: {x: 149.26, y: 34.65, z: 15.2}
   m_LocalScale: {x: 40.262688, y: 26.678215, z: 31.866}
   m_Children: []
   m_Father: {fileID: 0}
