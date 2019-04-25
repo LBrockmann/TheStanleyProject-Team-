@@ -10,13 +10,29 @@ public class Achievement: MonoBehaviour
     public Text smallTest;
 
     public Sprite placeHolder;
-    public Sprite pic1;
-    public Sprite pic2;
+    
+    public Sprite jumpPic; //1
+    public Sprite luckyPic;//2
+    public Sprite sodaPic;//3
+    public Sprite gregPic;//4
+    public Sprite trophyPic;//5
+    public Sprite deathPic;//6
+    public Sprite fourThirtyPic;//7
+    
+    
+    //endings list
+    //u never listened
+    //u went up stairs
+    //u went down stairs
+    //u never left ur room
+    //u stayed in the broom closet
 
     public int notiTimer = 1000;
     public int timer = 0;
 
     public Raycast rC;
+
+    public GameManager gM;
     
     public class Achievements
     {
@@ -41,12 +57,22 @@ public class Achievement: MonoBehaviour
 
     }
 
-    public Achievements jump = new Achievements("You cant jump","no seriously we never added that",1);
-    public Achievements random = new Achievements("Youre Lucky", "you did nothing to get this",2);
+    public Achievements jump = new Achievements("You cant jump","No seriously we never added that",1);
+    public Achievements random = new Achievements("Youre Lucky", "You did nothing to get this",2);
+    public Achievements soda = new Achievements("You Thirsty?", "That was your last dollar",3);
+    public Achievements greg = new Achievements("You are Greg", "Greg Stanley Heffernan",4);
+    public Achievements trophy = new Achievements("You beat this game", "But you lost The Game",5);
+    public Achievements deathWarehouse = new Achievements("You Died", "This is what happens when u dont listen",6);
+    public Achievements deathUpstairs = new Achievements("You Died", "This is what happens when u listen",6);
+    public Achievements deathDownstairs = new Achievements("You Died", "Have u not realised yet that the devs didnt do any of the endings?",6);
+    public Achievements deathBroomCloset = new Achievements("You Died", "You married the broom and lived happily ever after until you starved to death",6);
+    public Achievements deathOffice = new Achievements("You Died", "The whole point of this game is to leave the office and you ruined it",6);
+    public Achievements fourThirty = new Achievements("You did it?", "That was a complete waste of time",7);
 
 
     private void Start()
     {
+        //random acheivement
         achievementNoti.gameObject.SetActive(false);
         float i = Random.Range(0.0f, 1.0f);
         if (i > .5)
@@ -81,6 +107,30 @@ public class Achievement: MonoBehaviour
         {
             Activate(jump);
         }
+        
+        //soda achievement
+        if (rC.sodaVended)
+        {
+            Activate(soda);
+        }
+        
+        //greg achievement
+        if (gM.isGreg)
+        {
+            Activate(greg);
+        }
+        //trophy achievment
+        if (deathWarehouse.achieved && deathOffice.achieved && deathUpstairs.achieved && deathDownstairs.achieved &&
+            deathBroomCloset.achieved)
+        {
+            Activate(trophy);
+        }
+        //430 acheivement
+        if (fourThirty.activation == 12)
+        {
+            Activate(fourThirty);
+        }
+        
     }
 
     void Reset()
@@ -91,7 +141,7 @@ public class Achievement: MonoBehaviour
     }
 
     public void Activate(Achievements a)
-    {
+    {                                                                  //you have to manually set all the pictures here it sucks!!!!!!!!
         timer = 0;
         achievementNoti.gameObject.SetActive(true);
         bigText.gameObject.SetActive(true);
@@ -99,10 +149,25 @@ public class Achievement: MonoBehaviour
 
         if (a.picNumber == 1)
         {
-            achievementNoti.sprite = pic1;
+            achievementNoti.sprite = jumpPic;
         }if (a.picNumber == 2)
         {
-            achievementNoti.sprite = pic2;
+            achievementNoti.sprite = luckyPic;
+        }if (a.picNumber == 3)
+        {
+            achievementNoti.sprite = sodaPic;
+        }if (a.picNumber == 4)
+        {
+            achievementNoti.sprite = gregPic;
+        }if (a.picNumber == 5)
+        {
+            achievementNoti.sprite = trophyPic;
+        }if (a.picNumber == 6)
+        {
+            achievementNoti.sprite = deathPic;
+        }if (a.picNumber == 7)
+        {
+            achievementNoti.sprite = fourThirtyPic;
         }
         else
         {
@@ -113,6 +178,7 @@ public class Achievement: MonoBehaviour
         smallTest.text = a.notiSmallText;
 
         a.achieved = true;
+        
 
     }
    

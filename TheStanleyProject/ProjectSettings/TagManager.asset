@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Stanley
+  - Door
+  - Vending
+  - Door430
+  - Door417
+  - Door437
+  - Copier
+  - Door419
+  - Door416
+  - OfficeDoor
+  - Door415
   layers:
   - Default
   - TransparentFX
