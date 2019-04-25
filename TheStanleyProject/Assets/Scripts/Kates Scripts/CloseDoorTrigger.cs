@@ -6,6 +6,11 @@ public class CloseDoorTrigger : MonoBehaviour
 {  
     public GameObject doorHingeToClose;
     private DoorManager doorManagerScript;
+    public bool thisClosesStanleysDoor = false;
+    public bool thisClosesEnterBreakRoomDoor = false;
+    public bool thisClosesExitBreakRoomDoor = false;
+
+    public GameManager gM;
 
     void Start()
     {
@@ -18,6 +23,19 @@ public class CloseDoorTrigger : MonoBehaviour
         if (other.tag == "Stanley")
         {
             doorManagerScript.closeDoor();
+            if (thisClosesStanleysDoor)
+            {
+                gM.leftOffice = true;
+            }
+            if (thisClosesEnterBreakRoomDoor)
+            {
+                gM.inBreakRoom = true;
+            }
+
+            if (thisClosesExitBreakRoomDoor)
+            {
+                gM.inBreakRoom = false;
+            }
         }
     }
 }
