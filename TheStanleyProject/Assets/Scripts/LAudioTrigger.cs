@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 public class LAudioTrigger : MonoBehaviour
 {
@@ -28,7 +29,8 @@ public class LAudioTrigger : MonoBehaviour
             if (interrupt)
             {
                 other.GetComponent<AudioSource>().Pause();
-                other.GetComponent<AudioSource>().PlayOneShot(audioFile);
+                other.GetComponent<AudioSource>().clip = audioFile;
+                other.GetComponent<AudioSource>().Play();
                 Debug.Log("play: " + other.GetComponent<AudioSource>().clip + Time.time);
                 Destroy(this.gameObject);
             
@@ -37,7 +39,8 @@ public class LAudioTrigger : MonoBehaviour
             {
                 if (!other.GetComponent<AudioSource>().isPlaying)
                 {
-                    other.GetComponent<AudioSource>().PlayOneShot(audioFile);
+                    other.GetComponent<AudioSource>().clip = audioFile;
+                    other.GetComponent<AudioSource>().Play();
                     Debug.Log("play: " + other.GetComponent<AudioSource>().clip + Time.time);
                     Destroy(this.gameObject);
                 }
