@@ -9,6 +9,8 @@ public class PauseScreen : MonoBehaviour
     public bool paused;
     public GameManager gM;
 
+    public GameObject stanley;
+
     void Start()
     {
         gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
@@ -18,7 +20,7 @@ public class PauseScreen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (paused)
             {
@@ -27,9 +29,18 @@ public class PauseScreen : MonoBehaviour
             else
             {
                 Pause(); 
-            }
-            
-            
+            } 
+        }
+
+        if (paused)
+        {
+            stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = false;
+            stanley.GetComponent<CharacterController>().enabled = false;
+        }
+        else
+        {
+            stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = true;
+            stanley.GetComponent<CharacterController>().enabled = true;
         }
     }
 

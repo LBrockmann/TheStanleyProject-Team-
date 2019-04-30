@@ -83,6 +83,7 @@ public class Achievement: MonoBehaviour
            Activate(random);
         }
         
+        Reset();
     }
 
     void Update()
