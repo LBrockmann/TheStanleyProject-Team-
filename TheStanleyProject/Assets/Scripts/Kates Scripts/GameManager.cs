@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public bool isMoving = false;
 
+    public bool paused = false;
+
     public int timesRestarted = 0;
 
     public bool paperOrdered = false;
@@ -20,6 +22,10 @@ public class GameManager : MonoBehaviour
     public bool leftOffice;
 
     public bool inBreakRoom;
+
+    public bool pastTwoDoors;
+
+    public bool wentLeft;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +51,10 @@ public class GameManager : MonoBehaviour
     void ItsNotGreg()
     {
         askGregPanel.SetActive(false);
+    }
+
+    void Restart()
+    {
+        
     }
 }

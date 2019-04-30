@@ -29,6 +29,7 @@ public class Raycast : MonoBehaviour
     void Start()
     {
         _audioPlayed = false;
+        gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
     void Update()
     {

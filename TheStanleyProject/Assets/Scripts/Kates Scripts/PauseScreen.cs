@@ -7,9 +7,11 @@ public class PauseScreen : MonoBehaviour
 {
     public GameObject pauseScreen;
     public bool paused;
+    public GameManager gM;
 
     void Start()
     {
+        gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         pauseScreen.SetActive(false);
         paused = false;
     }
@@ -35,12 +37,14 @@ public class PauseScreen : MonoBehaviour
     {
         pauseScreen.SetActive(true);
         paused = true;
+        gM.paused = true;
     }
 
     public void UnPause()
     {
         pauseScreen.SetActive(false);
         paused = false;
+        gM.paused = false;
     }
 
     public void Restart()
