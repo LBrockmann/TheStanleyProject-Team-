@@ -20438,7 +20438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standStillTimer: 0
-  audioFile1: {fileID: 8300000, guid: 4f3d2a34f8f94d24ebeddfee799c74c6, type: 3}
+  audioFile1: {fileID: 8300000, guid: 8e8c2d9f9690bc548bf59896b9dff6a1, type: 3}
   timerCap1: 20
 --- !u!4 &2082243792 stripped
 Transform:
