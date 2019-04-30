@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public bool isGreg = false;
 
-    public GameObject askGregPanel;
+    //public GameObject askGregPanel;
 
     public bool leftOffice;
 
@@ -27,10 +27,14 @@ public class GameManager : MonoBehaviour
     public bool pastTwoDoors;
 
     public bool wentLeft;
+
+    public float mouseSensitivity = 1;
+
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -40,11 +44,13 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("MasterOffice");
         }
+
+        
     }
 
     void AskForGreg()
     {
-        askGregPanel.SetActive(true);
+        //askGregPanel.SetActive(true);
     }
 
     void ItIsGreg()
@@ -54,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     void ItsNotGreg()
     {
-        askGregPanel.SetActive(false);
+        //askGregPanel.SetActive(false);
     }
 
     void Restart()
