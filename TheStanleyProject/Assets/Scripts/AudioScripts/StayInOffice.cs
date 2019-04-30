@@ -21,7 +21,8 @@ public class StayInOffice : MonoBehaviour
     public float timerCap3;
     public float timerCap4;
     public float timerCap5;
-    private float standStillTimer;
+    public float standStillTimer;
+    public GameObject stanley;
     
     void Start()
     {
@@ -31,7 +32,58 @@ public class StayInOffice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
+        if (standStillTimer > timerCap1)
+        {
+            if (_Audioplayed1 == false)
+            {
+                stanley.GetComponent<AudioSource>().Pause();
+                stanley.GetComponent<AudioSource>().clip = audioFile1;
+                stanley.GetComponent<AudioSource>().Play();
+                _Audioplayed1 = true;
+            }
+        }
+        if (standStillTimer > timerCap2)
+        {
+            if (_Audioplayed2 == false)
+            {
+                stanley.GetComponent<AudioSource>().Pause();
+                stanley.GetComponent<AudioSource>().clip = audioFile2;
+                stanley.GetComponent<AudioSource>().Play();
+                _Audioplayed2 = true;
+            }
+        }
+        
+        if (standStillTimer > timerCap3)
+        {
+            if (_Audioplayed3 == false)
+            {
+                stanley.GetComponent<AudioSource>().Pause();
+                stanley.GetComponent<AudioSource>().clip = audioFile3;
+                stanley.GetComponent<AudioSource>().Play();
+                _Audioplayed3 = true;
+            }
+        }
+        if (standStillTimer > timerCap4)
+        {
+            if (_Audioplayed4 == false)
+            {
+                stanley.GetComponent<AudioSource>().Pause();
+                stanley.GetComponent<AudioSource>().clip = audioFile4;
+                stanley.GetComponent<AudioSource>().Play();
+                _Audioplayed4 = true;
+            }
+        }
+        if (standStillTimer > timerCap5)
+        {
+            if (_Audioplayed5 == false)
+            {
+                stanley.GetComponent<AudioSource>().Pause();
+                stanley.GetComponent<AudioSource>().clip = audioFile5;
+                stanley.GetComponent<AudioSource>().Play();
+                _Audioplayed5 = true;
+            }
+        }
 
         
     }
@@ -41,48 +93,6 @@ public class StayInOffice : MonoBehaviour
         if (other.tag == "Stanley")
         {
             standStillTimer = standStillTimer + 1 * Time.deltaTime;
-        }
-        
-        if (standStillTimer > timerCap1)
-        {
-            if (_Audioplayed1 == false)
-            {
-                this.GetComponent<AudioSource>().PlayOneShot(audioFile1);
-                _Audioplayed1 = true;
-            }
-        }
-        if (standStillTimer > timerCap2)
-        {
-            if (_Audioplayed2 == false)
-            {
-                this.GetComponent<AudioSource>().PlayOneShot(audioFile2);
-                _Audioplayed2 = true;
-            }
-        }
-        
-        if (standStillTimer > timerCap3)
-        {
-            if (_Audioplayed3 == false)
-            {
-                this.GetComponent<AudioSource>().PlayOneShot(audioFile3);
-                _Audioplayed3 = true;
-            }
-        }
-        if (standStillTimer > timerCap4)
-        {
-            if (_Audioplayed4 == false)
-            {
-                this.GetComponent<AudioSource>().PlayOneShot(audioFile4);
-                _Audioplayed4 = true;
-            }
-        }
-        if (standStillTimer > timerCap5)
-        {
-            if (_Audioplayed5 == false)
-            {
-                this.GetComponent<AudioSource>().PlayOneShot(audioFile5);
-                _Audioplayed5 = true;
-            }
         }
     }
 
