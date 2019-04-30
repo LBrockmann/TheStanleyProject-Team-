@@ -5,6 +5,8 @@ using UnityEngine;
 public class LAudioTrigger : MonoBehaviour
 {
 
+    public bool interrupt = false;
+
     //public GameObject Stanley;  you dont need this bc u check for the tag and can access stanly when he enters the trigger
 
     public AudioClip audioFile;
@@ -19,14 +21,27 @@ public class LAudioTrigger : MonoBehaviour
         
     }
 
- void OnTriggerEnter (Collider other)
+ void OnTriggerEnter (Collider other) //kate edited to add a non interrupt option
     {
-        if (other.tag == "Stanley" && other.GetComponent<AudioSource>().isPlaying == false) //If Stanley collides with your trigger and the narrator isn't talking
+        if (other.tag == "Stanley")
         {
-                other.GetComponent<AudioSource>().PlayOneShot(audioFile); //it'll play whichever audio clip you have dragged into this script on stanley's audiosource
-                Debug.Log("play: " + other.GetComponent<AudioSource>().clip + Time.time); //Get this debug working
+            if (interrupt)
+            {
+                other.GetComponent<AudioSource>().Pause();
+                other.GetComponent<AudioSource>().PlayOneShot(audioFile);
+                Debug.Log("play: " + other.GetComponent<AudioSource>().clip + Time.time);
                 Destroy(this.gameObject);
-
+            
+            }
+            else
+            {
+                if (!other.GetComponent<AudioSource>().isPlaying)
+                {
+                    other.GetComponent<AudioSource>().PlayOneShot(audioFile);
+                    Debug.Log("play: " + other.GetComponent<AudioSource>().clip + Time.time);
+                    Destroy(this.gameObject);
+                }
+            } 
         }
     }
 }

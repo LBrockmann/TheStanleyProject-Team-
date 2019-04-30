@@ -72,6 +72,9 @@ public class Achievement: MonoBehaviour
 
     private void Start()
     {
+        //game manager assignment
+        gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        
         //random acheivement
         achievementNoti.gameObject.SetActive(false);
         float i = Random.Range(0.0f, 1.0f);

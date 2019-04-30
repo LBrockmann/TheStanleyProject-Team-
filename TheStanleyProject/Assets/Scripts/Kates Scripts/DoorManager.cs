@@ -14,6 +14,9 @@ public class DoorManager : MonoBehaviour
         private float rotationSpeed = 1;
         private float currentRotation;
         private Quaternion cRotation;
+
+        public AudioClip closeDoorAudio;
+        public AudioClip openDoorAudio;
     
         void Start()
         {
@@ -95,10 +98,18 @@ public class DoorManager : MonoBehaviour
     public void openDoor()
     {
         opening = true;
+        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(openDoorAudio);
+        }
     }
 
     public void closeDoor()
     {
         closing = true;
+        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(closeDoorAudio);
+        }
     }
 }
