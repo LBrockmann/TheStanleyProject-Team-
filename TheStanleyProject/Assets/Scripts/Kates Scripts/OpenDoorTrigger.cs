@@ -18,6 +18,7 @@ public class OpenDoorTrigger : MonoBehaviour
         if (other.tag == "Stanley")
         {
             doorManagerScript.openDoor();
+            Destroy(this.gameObject);
         }
        
     }

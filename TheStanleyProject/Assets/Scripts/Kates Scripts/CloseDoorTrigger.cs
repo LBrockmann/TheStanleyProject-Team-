@@ -10,8 +10,6 @@ public class CloseDoorTrigger : MonoBehaviour
     public bool thisClosesEnterBreakRoomDoor = false;
     public bool thisClosesExitBreakRoomDoor = false;
 
-    public GameManager gM;
-
     void Start()
     {
         doorManagerScript = doorHingeToClose.GetComponent<DoorManager>();
@@ -23,19 +21,7 @@ public class CloseDoorTrigger : MonoBehaviour
         if (other.tag == "Stanley")
         {
             doorManagerScript.closeDoor();
-            if (thisClosesStanleysDoor)
-            {
-                gM.leftOffice = true;
-            }
-            if (thisClosesEnterBreakRoomDoor)
-            {
-                gM.inBreakRoom = true;
-            }
-
-            if (thisClosesExitBreakRoomDoor)
-            {
-                gM.inBreakRoom = false;
-            }
+            Destroy(this.gameObject);
         }
     }
 }
