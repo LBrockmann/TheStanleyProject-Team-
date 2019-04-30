@@ -21490,9 +21490,9 @@ MonoBehaviour:
   rayDistance: 2.25
   stanley: {fileID: 2128680521}
   _clickCount: 0
-  clickCap: 17
+  clickCap: 6
   stanleyObject: {fileID: 2081303883}
-  clickAudioClip: {fileID: 8300000, guid: 4f3d2a34f8f94d24ebeddfee799c74c6, type: 3}
+  clickAudioClip: {fileID: 8300000, guid: 96b4329480e46534b9ff09157b032544, type: 3}
   sodaVended: 0
   aM: {fileID: 0}
   doorFourThirtyClicks: 0

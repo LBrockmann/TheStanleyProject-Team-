@@ -157,7 +157,7 @@ public class Raycast : MonoBehaviour
             
         }
 
-        if (_timer > 15)
+        if (_timer > 30)
         {
             _timer = 0;
             _clickCount = 0;
