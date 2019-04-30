@@ -20,6 +20,10 @@ public class DoorManager : MonoBehaviour
 
         public int openDoorAudioTimer;
         public int closeDoorAudioTimer;
+        private int cDAT;  //timer
+        private int oDAT; //timer
+        private bool openTimer = false;
+        private bool closeTimer = false;
     
         void Start()
         {
@@ -38,6 +42,27 @@ public class DoorManager : MonoBehaviour
         void Update()
         {
             //check
+            if (openTimer)
+            {
+                oDAT++;
+                if (oDAT > openDoorAudioTimer)
+                {
+                    gameObject.GetComponent<AudioSource>().clip = openDoorAudio;
+                    gameObject.GetComponent<AudioSource>().Play();
+                    openTimer = false;
+                }
+            }
+
+            if (closeTimer)
+            {
+                cDAT++;
+                if (cDAT > closeDoorAudioTimer)
+                {
+                    gameObject.GetComponent<AudioSource>().clip = closeDoorAudio;
+                    gameObject.GetComponent<AudioSource>().Play();
+                    closeTimer = false;
+                }
+            }
             
             
             
@@ -108,8 +133,9 @@ public class DoorManager : MonoBehaviour
             {
                 x++;
             }
-            gameObject.GetComponent<AudioSource>().PlayOneShot(openDoorAudio);
+
             
+
         }
     }
 
@@ -123,7 +149,9 @@ public class DoorManager : MonoBehaviour
             {
                 x++;
             }
-            gameObject.GetComponent<AudioSource>().PlayOneShot(closeDoorAudio);
+
+            gameObject.GetComponent<AudioSource>().clip = openDoorAudio;
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
 }
