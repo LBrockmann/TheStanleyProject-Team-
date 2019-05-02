@@ -9,26 +9,28 @@ public class GameManager : MonoBehaviour
     public bool isMoving = false;
 
     public bool paused = false;
-
-    public int timesRestarted = 0;
-
-    public bool paperOrdered = false;
+    
+    public bool leftOffice;
+    
+    //greg manager
 
     public bool askedForGreg = false;
 
     public bool isGreg = false;
 
-    //public GameObject askGregPanel;
+    public GameObject askGregPanel;
 
-    public bool leftOffice;
-
-    public bool inBreakRoom;
-
-    public bool pastTwoDoors;
-
-    public bool wentLeft;
+   
+    //to edit moues sense
 
     public float mouseSensitivity = 1;
+    
+    
+    //scene loading manager
+    public int timesRestarted = 0;
+    public bool paperOrdered = false;
+    public bool phoneCall = false;
+    public bool paperReceived = false;
 
    
     // Start is called before the first frame update
