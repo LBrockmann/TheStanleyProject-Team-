@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2160924438017004553}
   - component: {fileID: 2319836397519400765}
   m_Layer: 0
-  m_Name: Door Hinge
+  m_Name: Door Hinge - scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   closeDoorAudio: {fileID: 8300000, guid: 868e168172e3717468dcd0b7686c9d1d, type: 3}
   openDoorAudio: {fileID: 8300000, guid: 64cd7cbd3d25ea74e99233bd249ed9ae, type: 3}
   openDoorAudioTimer: 0
-  closeDoorAudioTimer: 1000
+  closeDoorAudioTimer: 80
 --- !u!82 &2319836397519400765
 AudioSource:
   m_ObjectHideFlags: 0
