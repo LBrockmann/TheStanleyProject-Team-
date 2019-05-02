@@ -35,12 +35,12 @@ public class PauseScreen : MonoBehaviour
         if (paused)
         {
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = false;
-            stanley.GetComponent<CharacterController>().enabled = false;
+            stanley.GetComponent<CharacterMovement2>().enabled = false;
         }
         else
         {
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = true;
-            stanley.GetComponent<CharacterController>().enabled = true;
+            stanley.GetComponent<CharacterMovement2>().enabled = true;
         }
     }
 
