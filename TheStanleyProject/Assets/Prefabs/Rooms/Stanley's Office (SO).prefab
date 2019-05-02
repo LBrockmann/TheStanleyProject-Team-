@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8083069658400911820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736517846927219501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdd555d0f34b284d83656874e1456b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioFile1: {fileID: 8300000, guid: e85641b4287a35e4ca06fb228bc5b1b7, type: 3}
+  audioFile2: {fileID: 8300000, guid: ba3ae7d376b2ee3438e3045fd999a9f1, type: 3}
+  audioFile3: {fileID: 8300000, guid: 92422d83af07cd843b5b4b4e4f67b2aa, type: 3}
+  audioFile4: {fileID: 8300000, guid: 8e8c2d9f9690bc548bf59896b9dff6a1, type: 3}
+  audioFile5: {fileID: 0}
+  timerCap1: 10
+  timerCap2: 30
+  timerCap3: 45
+  timerCap4: 60
+  timerCap5: 0
+  standStillTimer: 0
+  stanley: {fileID: 0}
 --- !u!1 &8083069657333394455
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,30 +89,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8083069658400911820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3736517846927219501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fdd555d0f34b284d83656874e1456b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioFile1: {fileID: 8300000, guid: e85641b4287a35e4ca06fb228bc5b1b7, type: 3}
-  audioFile2: {fileID: 8300000, guid: ba3ae7d376b2ee3438e3045fd999a9f1, type: 3}
-  audioFile3: {fileID: 8300000, guid: 92422d83af07cd843b5b4b4e4f67b2aa, type: 3}
-  audioFile4: {fileID: 8300000, guid: 8e8c2d9f9690bc548bf59896b9dff6a1, type: 3}
-  audioFile5: {fileID: 0}
-  timerCap1: 10
-  timerCap2: 30
-  timerCap3: 45
-  timerCap4: 60
-  timerCap5: 0
-  standStillTimer: 0
-  stanley: {fileID: 0}
 --- !u!1 &8083069658811295832
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +249,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000,
+      objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000,
         type: 0}
     - target: {fileID: 3575191544024546940, guid: 51752298b0453d74083561d9a825604d,
         type: 3}
