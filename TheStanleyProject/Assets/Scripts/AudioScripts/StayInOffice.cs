@@ -37,6 +37,7 @@ public class StayInOffice : MonoBehaviour
         {
             if (_Audioplayed1 == false)
             {
+                Debug.Log("lineplays");
                 stanley.GetComponent<AudioSource>().Pause();
                 stanley.GetComponent<AudioSource>().clip = audioFile1;
                 stanley.GetComponent<AudioSource>().Play();
