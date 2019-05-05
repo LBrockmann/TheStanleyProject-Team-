@@ -932,6 +932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: doorhandle
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 080b8cc4656999644b29cbf5567a9a85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 080b8cc4656999644b29cbf5567a9a85, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.041211832
@@ -1010,6 +1014,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 080b8cc4656999644b29cbf5567a9a85, type: 3}
       propertyPath: m_Name
       value: doorhandle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 080b8cc4656999644b29cbf5567a9a85, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 080b8cc4656999644b29cbf5567a9a85, type: 3}
       propertyPath: m_LocalPosition.x
