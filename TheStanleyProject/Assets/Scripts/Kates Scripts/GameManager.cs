@@ -12,13 +12,7 @@ public class GameManager : MonoBehaviour
     
     public bool leftOffice;
     
-    //greg manager
-
-    public bool askedForGreg = false;
-
-    public bool isGreg = false;
-
-    public GameObject askGregPanel;
+    
 
    
     //to edit moues sense
@@ -30,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int timesRestarted = 0;
     public bool paperOrdered = false;
     public bool phoneCall = false;
+    public bool phoneAnswered = false;
     public bool paperReceived = false;
 
    
@@ -47,23 +42,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("MasterOffice");
         }
 
+
         
     }
 
-    void AskForGreg()
-    {
-        //askGregPanel.SetActive(true);
-    }
-
-    void ItIsGreg()
-    {
-        isGreg = true;
-    }
-
-    void ItsNotGreg()
-    {
-        //askGregPanel.SetActive(false);
-    }
+    
 
     void Restart()
     {
