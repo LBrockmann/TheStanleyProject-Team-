@@ -6,13 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class MenuLoader : MonoBehaviour
 {
-
-    private bool S1loaded, S2loaded, S3loaded, S4loaded;
+    public GameManager gM;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+        gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        gM.paperOrdered = true;
+        StartCoroutine(newScene(66));
+        print("loading dem scenes");
+        
+        //scenes 
+        
+        //main scene - 30
+        //flip - 20
+        //paper - 15
+        //phone = 10
+        //blue - 5
+        //bluehall - 10
+        //hall - 10
+        
+        
+        //package - 
     }
 
     // Update is called once per frame
@@ -21,50 +36,42 @@ public class MenuLoader : MonoBehaviour
 
     }
 
-    public IEnumerator newScene(int MenuLoadPercent)
+    public IEnumerator newScene(float MenuLoadPercent)
     {
-        //MenuLoadPercent = (int)Random.Range(1, 100);
+        //MenuLoadPercent = (float)Random.Range(0.0f, 100.0f);
 
-        if (MenuLoadPercent >= 1 && MenuLoadPercent < 25 && S1loaded == false)
+        if (gM.paperOrdered && !gM.paperReceived)
         {
-            //load scene possibility 1
-            S1loaded = true;
+            gM.paperReceived = true;
+            SceneManager.LoadScene("Package");
+        }else if (MenuLoadPercent < 30)
+        {
+            //stay in main scene
         }
-        else if (S1loaded)
+        else if (MenuLoadPercent < 50)
         {
-            StartCoroutine(newScene((int) Random.Range(1, 100)));
+            SceneManager.LoadScene("Flip");
         }
-        
-
-        if (MenuLoadPercent >= 25 && MenuLoadPercent < 50 && S2loaded == false)
+        else if (MenuLoadPercent < 65)
         {
-            //load scene 2
-            S2loaded = true;
+            SceneManager.LoadScene("Paper");
         }
-        else if (S2loaded)
+        else if (MenuLoadPercent < 75)
         {
-            StartCoroutine(newScene((int) Random.Range(1, 100)));
+            if (!gM.phoneCall)
+            {
+                SceneManager.LoadScene("Phone");
+            }
         }
-        
-
-        if (MenuLoadPercent >= 50 && MenuLoadPercent < 75 && S3loaded == false)
+        else if (MenuLoadPercent < 80)
         {
-            //load scene 3
-            S3loaded = true;
-        }
-        else if (S3loaded)
+            SceneManager.LoadScene("Blue");   
+        }else if (MenuLoadPercent < 90)
         {
-            StartCoroutine(newScene((int) Random.Range(1, 100)));
-        }
-        
-
-        if (MenuLoadPercent >= 75 && MenuLoadPercent < 101 && S4loaded == false)
+            SceneManager.LoadScene("BlueHall");   
+        }else
         {
-            S4loaded = true;
-        }
-        else if (S4loaded)
-        {
-            StartCoroutine(newScene((int) Random.Range(1, 100)));
+            SceneManager.LoadScene("Hall");   
         }
 
 

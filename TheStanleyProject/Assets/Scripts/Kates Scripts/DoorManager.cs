@@ -128,13 +128,9 @@ public class DoorManager : MonoBehaviour
         opening = true;
         if (!gameObject.GetComponent<AudioSource>().isPlaying)
         {
-            int x = 0;
-            while (x < openDoorAudioTimer)
-            {
-                x++;
-            }
+            openTimer = true;
 
-            
+
 
         }
     }
@@ -144,14 +140,9 @@ public class DoorManager : MonoBehaviour
         closing = true;
         if (!gameObject.GetComponent<AudioSource>().isPlaying)
         {
-            int x = 0;
-            while(x < closeDoorAudioTimer)
-            {
-                x++;
-            }
+            closeTimer = true;
 
-            gameObject.GetComponent<AudioSource>().clip = openDoorAudio;
-            gameObject.GetComponent<AudioSource>().Play();
+
         }
     }
 }
