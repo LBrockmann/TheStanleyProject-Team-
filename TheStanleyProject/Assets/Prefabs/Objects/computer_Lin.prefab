@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2610258358420914929}
+  - component: {fileID: 3094285807086031991}
   m_Layer: 0
   m_Name: computer_Lin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &2610258358420914929
 Transform:
@@ -32,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &3094285807086031991
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2610258358420889297}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 3.3068864, y: 3.0157964, z: 1.8760828}
+  - {x: 3.3047545, y: 2.7416372, z: -2.1092625}
+  - {x: 3.253209, y: -1, z: 2.5841193}
+  - {x: 3.182057, y: -1, z: -2.71556}
+  - {x: -1, y: 3.3487716, z: 2.2444594}
+  - {x: -1, y: 3.297954, z: -1.9544002}
+  - {x: -1, y: -1, z: 2.5219824}
+  - {x: -1, y: -1, z: -2.5871243}
+  m_Dering: 0
 --- !u!1 &2610258358420889299
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,7 +67,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &2610258358420914931
 Transform:
@@ -126,7 +145,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &2610258358420914933
 Transform:
