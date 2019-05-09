@@ -41,6 +41,7 @@ public class PauseScreen : MonoBehaviour
         else
         {
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = true;
+            Cursor.lockState = CursorLockMode.Locked;
             stanley.GetComponent<CharacterMovement2>().enabled = true;
         }
     }
