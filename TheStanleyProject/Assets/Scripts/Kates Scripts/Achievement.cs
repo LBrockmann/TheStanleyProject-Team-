@@ -33,6 +33,16 @@ public class Achievement: MonoBehaviour
     public Raycast rC;
 
     public GameManager gM;
+
+    public PauseScreen pS;
+    
+    //greg manager
+
+    public bool askedForGreg = false;
+
+    public bool isGreg = false;
+
+    public GameObject askGregPanel;
     
     public class Achievements
     {
@@ -64,7 +74,6 @@ public class Achievement: MonoBehaviour
     public Achievements trophy = new Achievements("You beat this game", "But you lost The Game",5);
     public Achievements deathWarehouse = new Achievements("You Died", "This is what happens when u dont listen",6);
     public Achievements deathUpstairs = new Achievements("You Died", "This is what happens when u listen",6);
-    public Achievements deathDownstairs = new Achievements("You Died", "Have u not realised yet that the devs didnt do any of the endings?",6);
     public Achievements deathBroomCloset = new Achievements("You Died", "You married the broom and lived happily ever after until you starved to death",6);
     public Achievements deathOffice = new Achievements("You Died", "The whole point of this game is to leave the office and you ruined it",6);
     public Achievements fourThirty = new Achievements("You did it?", "That was a complete waste of time",7);
@@ -88,6 +97,10 @@ public class Achievement: MonoBehaviour
 
     void Update()
     {
+        if (gM.timesRestarted < 1 && !askedForGreg)
+        {
+            //AskForGreg();
+        }
         //reset timer
         if (timer > notiTimer)
         {
@@ -119,12 +132,12 @@ public class Achievement: MonoBehaviour
         }
         
         //greg achievement
-        if (gM.isGreg)
+        if (isGreg)
         {
             Activate(greg);
         }
         //trophy achievment
-        if (deathWarehouse.achieved && deathOffice.achieved && deathUpstairs.achieved && deathDownstairs.achieved &&
+        if (deathWarehouse.achieved && deathOffice.achieved && deathUpstairs.achieved && 
             deathBroomCloset.achieved)
         {
             Activate(trophy);
@@ -184,6 +197,26 @@ public class Achievement: MonoBehaviour
         a.achieved = true;
         
 
+    }
+    
+    public void AskForGreg()
+    {
+        askGregPanel.SetActive(true);
+        pS.paused = true;
+        askedForGreg = true;
+    }
+
+    public void ItIsGreg()
+    {
+        isGreg = true;
+        askGregPanel.SetActive(false);
+        pS.paused = false;
+    }
+
+    public void ItsNotGreg()
+    {
+        askGregPanel.SetActive(false);
+        pS.paused = false;
     }
    
     
