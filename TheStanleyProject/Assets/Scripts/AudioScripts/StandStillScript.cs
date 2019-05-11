@@ -41,7 +41,9 @@ public class StandStillScript : MonoBehaviour
         {
             if (_Audioplayed == false)
             {
-             this.GetComponent<AudioSource>().PlayOneShot(audioFile1);
+                this.GetComponent<AudioSource>().Pause();
+                this.GetComponent<AudioSource>().clip = audioFile1;
+                this.GetComponent<AudioSource>().Play();
              _Audioplayed = true;
             }
             
