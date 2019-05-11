@@ -18,8 +18,7 @@ public class CharacterMovement2 : MonoBehaviour
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     private float gravity = 20.0f;
-    public static bool pushed;
-    public static float pushedHeight;
+    public AudioSource footStep;
     public static Vector3 moveDirection = Vector3.zero;
 
     void Start()
@@ -44,6 +43,17 @@ public class CharacterMovement2 : MonoBehaviour
             //{
             //    moveDirection.y = jumpSpeed;
             //}
+            if(Input.GetButton("Horizontal")| Input.GetButton("Vertical"))
+            {
+                if (!footStep.isPlaying)
+                {
+                    footStep.Play();
+                }
+            }
+            else
+            {
+                footStep.Stop();
+            }
         }
         else
         {
@@ -53,16 +63,7 @@ public class CharacterMovement2 : MonoBehaviour
 
 
         }
-        if (pushed)
-        {
-
-            moveDirection.x-= pushedHeight;
-           //moveDirection.z = pushedHeight;
-            //moveDirection.y = pushedHeight;
-            pushed = false;
-        }
-
-
+     
 
         moveDirection.y -= gravity * Time.deltaTime;
 
