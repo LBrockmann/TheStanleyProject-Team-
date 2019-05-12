@@ -11,6 +11,8 @@ public class Raycast : MonoBehaviour
     public int clickCap;
     public GameObject stanleyObject;
     public AudioClip clickAudioClip;
+    public AudioClip clickingSound1;
+    public AudioClip clickingSound2;
     private bool _audioPlayed;
 
     public bool sodaVended = false;
@@ -44,6 +46,8 @@ public class Raycast : MonoBehaviour
             //print(hit.transform.tag);
             if (Input.GetMouseButtonDown(0))
             {
+
+                clicking();
                 _clickCount++;
                 if (hit.transform.tag == "Door" || hit.transform.tag == "Door430" || hit.transform.tag == "Door417" || hit.transform.tag == "Door437"
                     || hit.transform.tag == "Door419" || hit.transform.tag == "Door416" || hit.transform.tag == "OfficeDoor" || hit.transform.tag == "Door415") //kate added these doors for the 430 acheivemnt
@@ -175,5 +179,18 @@ public class Raycast : MonoBehaviour
         
         
         _timer = _timer + 1 * Time.deltaTime;
+    }
+    private void clicking()
+    {
+        int x = Random.Range(0, 10);
+
+        if (x < 5)
+        {
+            stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickingSound1);
+        }
+        else
+        {
+            stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickingSound2);
+        }
     }
 }
