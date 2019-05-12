@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6389218948710613545
 Transform:
@@ -93,7 +93,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6389218948710613547
 Transform:
@@ -164,13 +164,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6389218948710613551}
   - component: {fileID: 4526218991776131315}
-  - component: {fileID: 7672986477138508427}
   m_Layer: 0
   m_Name: PaperBoxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6389218948710613551
 Transform:
@@ -201,21 +200,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2843583, y: 1.3945363, z: 1.5903115}
   m_Center: {x: -0.003417269, y: 0.5508054, z: -0.021391187}
---- !u!220 &7672986477138508427
-LightProbeGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6389218948710194703}
-  m_Enabled: 1
-  m_SourcePositions:
-  - {x: 1.3106312, y: 1.4770651, z: 1.266136}
-  - {x: 1.3106316, y: 1.4770651, z: -1.2954166}
-  - {x: 1.3106312, y: -0.08182671, z: 1.266136}
-  - {x: 1.3106316, y: -0.08182671, z: -1.2954166}
-  - {x: -1.2444499, y: 1.4770651, z: 1.266136}
-  - {x: -1.2444494, y: 1.4770651, z: -1.2954166}
-  - {x: -1.2444499, y: -0.08182671, z: 1.266136}
-  - {x: -1.2444494, y: -0.08182671, z: -1.2954166}
-  m_Dering: 0
