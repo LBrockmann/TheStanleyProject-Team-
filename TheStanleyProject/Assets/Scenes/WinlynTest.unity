@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PictureFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 5863283262543950646, guid: 8580bc33fb9ecae49b2ca10b34318fc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5863283262543851286, guid: 8580bc33fb9ecae49b2ca10b34318fc2,
         type: 3}
       propertyPath: m_LocalPosition.x
