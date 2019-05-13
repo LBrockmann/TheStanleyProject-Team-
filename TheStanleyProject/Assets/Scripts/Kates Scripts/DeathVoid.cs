@@ -31,6 +31,7 @@ public class DeathVoid : MonoBehaviour
         if (other.tag == "Stanley" && !activated)
         {
             aM.Activate(aM.deathVoid);
+            gM.diedinVoid = true;
             activated = true;
             StartCoroutine(Restart());
         }

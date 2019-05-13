@@ -168,6 +168,7 @@ public class BroomCloset : MonoBehaviour
                 stanley.GetComponent<AudioSource>().clip = audioFile11;
                 stanley.GetComponent<AudioSource>().Play();
                 aM.Activate(aM.deathBroomCloset);
+                gM.diedInBroomCloset = true;
                 StartCoroutine(Restart());
                 _Audioplayed11 = true;
             }

@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     public bool inVoid;
     public bool inCloset;
     public bool inBreakRoom;
+
+    public bool diedInBroomCloset;
+    public bool diedInOffice;
+    public bool diedinWarehouse;
+    public bool diedinVoid;
     
     
 
@@ -78,6 +83,15 @@ public class GameManager : MonoBehaviour
     public void GameReset()
     {
         RestartLevel();
+        timesRestarted = 0;
+        diedinVoid = false;
+        diedinWarehouse = false;
+        diedInOffice = false;
+        diedInBroomCloset = false;
+        phoneCall = false;
+        paperReceived = false;
+        phoneAnswered = false;
+        paperOrdered = false;
     }
     
     

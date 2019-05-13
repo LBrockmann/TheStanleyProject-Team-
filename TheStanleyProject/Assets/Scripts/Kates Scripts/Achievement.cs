@@ -19,7 +19,8 @@ public class Achievement: MonoBehaviour
     public Sprite trophyPic;//5
     public Sprite deathPic;//6
     public Sprite fourThirtyPic;//7
-    
+
+    public bool randomTested;
     
     //endings list
     //u never listened
@@ -110,18 +111,9 @@ public class Achievement: MonoBehaviour
         //game manager assignment
         gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         
-        //random acheivement
-        achievementNoti.gameObject.SetActive(false);
-        float i = Random.Range(0.0f, 1.0f);
-        if (i > 0)
-        {
-           Activate(random);
-           print("activate");
-        }
-        
+        //random acheivement 
         Reset();
         
-        DontDestroyOnLoad(this.gameObject);
 
         allofThem[0] = jump;
         allofThem[1] = random;
@@ -132,10 +124,38 @@ public class Achievement: MonoBehaviour
         allofThem[6] = deathBroomCloset;
         allofThem[7] = deathOffice;
         allofThem[8] = fourThirty;
+
+        if (gM.diedinVoid)
+        {
+            deathVoid.achieved = true;
+        }
+        if (gM.diedinWarehouse)
+        {
+            deathWarehouse.achieved = true;
+        }
+        if (gM.diedInOffice)
+        {
+            deathOffice.achieved = true;
+        }
+        if (gM.diedInBroomCloset)
+        {
+            deathBroomCloset.achieved = true;
+        }
     }
 
     void Update()
     {
+        if (!randomTested && askedForGreg)
+        {
+            float i = Random.Range(0.0f, 1.0f);
+            if (i > .5)
+            {
+                Activate(random);
+            }
+
+            randomTested = true;
+        }
+        
         if (gM.timesRestarted < 1 && !askedForGreg)
         {
             //AskForGreg();
@@ -161,7 +181,6 @@ public class Achievement: MonoBehaviour
 
         if (!jump.achieved && jump.activation > 2)
         {
-            print("jump");
             Activate(jump);
         }
         
@@ -189,39 +208,40 @@ public class Achievement: MonoBehaviour
 
     void Reset()
     {
-        achievementNoti.sprite = null;
-        bigText.text = "";
-        smallTest.text = "";
+        achievementNoti.gameObject.SetActive(false);
+        bigText.gameObject.SetActive(false);
+        smallTest.gameObject.SetActive(false);
     }
 
     public void Activate(Achievements a)
     {                                                                  //you have to manually set all the pictures here it sucks!!!!!!!!
         timer = 0;
-        print(a.picNumber);
+        achievementNoti.gameObject.SetActive(true);
+        bigText.gameObject.SetActive(true);
+        smallTest.gameObject.SetActive(true);
 
         if (a.picNumber == 1)
         {
             achievementNoti.sprite = jumpPic;
-        }if (a.picNumber == 2)
+        }else if (a.picNumber == 2)
         {
             achievementNoti.sprite = luckyPic;
-        }if (a.picNumber == 3)
+        }else if (a.picNumber == 3)
         {
             achievementNoti.sprite = sodaPic;
-        }if (a.picNumber == 4)
+        }else if (a.picNumber == 4)
         {
             achievementNoti.sprite = gregPic;
-        }if (a.picNumber == 5)
+        }else if (a.picNumber == 5)
         {
             achievementNoti.sprite = trophyPic;
-        }if (a.picNumber == 6)
+        }else if (a.picNumber == 6)
         {
             achievementNoti.sprite = deathPic;
-        }if (a.picNumber == 7)
+        }else if (a.picNumber == 7)
         {
             achievementNoti.sprite = fourThirtyPic;
-        }
-        else
+        }else
         {
             achievementNoti.sprite = placeHolder;
             print("load placeholder");

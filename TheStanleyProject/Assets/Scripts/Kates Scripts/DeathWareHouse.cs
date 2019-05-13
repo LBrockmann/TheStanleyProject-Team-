@@ -31,6 +31,7 @@ public class DeathWareHouse : MonoBehaviour
         if (other.tag == "Stanley" && !activated)
         {
             aM.Activate(aM.deathWarehouse);
+            gM.diedinWarehouse = true;
             activated = true;
             StartCoroutine(Restart());
         }
