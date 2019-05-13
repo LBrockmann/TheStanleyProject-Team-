@@ -28,6 +28,9 @@ public class Raycast : MonoBehaviour
 
     public GameManager gM;
 
+    public BroomCloset bC1;
+    public BroomCloset bC2;
+
     void Start()
     {
         _audioPlayed = false;
@@ -64,18 +67,17 @@ public class Raycast : MonoBehaviour
                 {
                     hit.transform.GetComponentInParent<DoorManager>().openDoor(); 
                     gM.inVoid = true;
+                    aM.Activate(aM.deathVoid);
                 }
                 
-                if (hit.transform.tag == "ClosetDoor")
+                if (hit.transform.tag == "ClosetDoor" && !bC1.stuckInCloset && !bC2.stuckInCloset)
                 {
                     if (gM.inCloset)
                     {
-                        gM.inCloset = false;
                         hit.transform.GetComponentInParent<DoorManager>().closeDoor();
                     }
                     else
                     {
-                        gM.inCloset = true;
                         hit.transform.GetComponentInParent<DoorManager>().openDoor();
                     }
                 }

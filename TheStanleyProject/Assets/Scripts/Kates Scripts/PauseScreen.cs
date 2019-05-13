@@ -10,6 +10,8 @@ public class PauseScreen : MonoBehaviour
     public GameManager gM;
 
     public GameObject stanley;
+    
+    public Achievement aM;
 
     void Start()
     {
@@ -63,14 +65,16 @@ public class PauseScreen : MonoBehaviour
 
     public void Restart()
     {
-        gM.Restart();
+        gM.RestartLevel();
         SceneManager.LoadScene("MasterOffice");
         
     }
 
     public void LoadMenu()
     {
-        gM.Restart();
+        
+        aM.GameReset();
+        gM.GameReset();
         SceneManager.LoadScene("MenuScene");
     }
 }

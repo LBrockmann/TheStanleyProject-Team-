@@ -30,18 +30,9 @@ public class inBreakRoomTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gM.stayOffice)
-        {
-            standStillTimer = standStillTimer + 1 * Time.deltaTime;
-        }
-        else
-        {
-            standStillTimer = 0;
-        }
         
         if (standStillTimer > timerCap1)
         {
-            print("play audio");
             if (_Audioplayed1 == false)
             {
                 Debug.Log("lineplays");
@@ -89,9 +80,7 @@ public class inBreakRoomTrigger : MonoBehaviour
         if (other.tag == "Stanley")
         {
             standStillTimer = standStillTimer + 1 * Time.deltaTime;
-            print("stan man in break room");
         }
-        print("someone in break room");
 
         gM.inBreakRoom = true;
     }
@@ -102,7 +91,6 @@ public class inBreakRoomTrigger : MonoBehaviour
         {
             standStillTimer = 0;
         }
-        print("someone left break room");
 
         gM.inBreakRoom = false;
     }

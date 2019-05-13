@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3422366322621502321}
   - component: {fileID: 7324825480526543601}
+  - component: {fileID: 8816373600930927101}
   m_Layer: 0
   m_Name: Kate_Painting1
   m_TagString: Untagged
@@ -174,3 +175,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8816373600930927101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657568090480357828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8f5f8f703785642b99b6271772d9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pictures:
+  - {fileID: 21300000, guid: 739cc5e74eb4df4469d31395077148c0, type: 3}
+  - {fileID: 21300000, guid: b28397a4f307dcb4f8bdd24f24d6e90e, type: 3}
+  - {fileID: 21300000, guid: a60e3517b2de90144bedc22e98550e52, type: 3}
+  - {fileID: 21300000, guid: a4a4e77d5bfa6b74a97871a469899163, type: 3}
+  spriteRenderer: {fileID: 0}

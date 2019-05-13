@@ -17,13 +17,22 @@ public class DoorManager : MonoBehaviour
 
         public AudioClip closeDoorAudio;
         public AudioClip openDoorAudio;
+        
+        //public timer managament
 
         public int openDoorAudioTimer;
         public int closeDoorAudioTimer;
+        
+        //private timer management
         private int cDAT;  //timer
         private int oDAT; //timer
         private bool openTimer = false;
         private bool closeTimer = false;
+        
+        //openclsoe bools
+
+        public bool open;
+        public bool closed;
     
         void Start()
         {
@@ -78,11 +87,15 @@ public class DoorManager : MonoBehaviour
                 if (currentRotation > 0 && currentRotation < 270)
                 {
                     opening = false;
+                    open = true;
+                    closed = false;
                 }
     
                 if (currentRotation < 269)
                 {
                     closing = false;
+                    closed = true;
+                    open = true;
                 }
             }
     
@@ -91,11 +104,15 @@ public class DoorManager : MonoBehaviour
                 if (currentRotation > 90)
                 {
                     opening = false;
+                    open = true;
+                    closed = false;
                 }
     
                 if (currentRotation > 89 && currentRotation < 270)
                 {
                     closing = false;
+                    closed = true;
+                    open = true;
                 }
             }
 
@@ -104,11 +121,15 @@ public class DoorManager : MonoBehaviour
                 if (currentRotation < 180)
                 {
                     opening = false;
+                    open = true;
+                    closed = false;
                 }
     
                 if (currentRotation > 268)
                 {
                     closing = false;
+                    open = false;
+                    closed = true;
                 }
             }
             //move
@@ -126,11 +147,9 @@ public class DoorManager : MonoBehaviour
     public void openDoor()
     {
         opening = true;
-        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        if (!gameObject.GetComponent<AudioSource>().isPlaying && !open)
         {
             openTimer = true;
-
-
 
         }
     }
@@ -138,11 +157,9 @@ public class DoorManager : MonoBehaviour
     public void closeDoor()
     {
         closing = true;
-        if (!gameObject.GetComponent<AudioSource>().isPlaying)
+        if (!gameObject.GetComponent<AudioSource>().isPlaying && !closed)
         {
             closeTimer = true;
-
-
         }
     }
 }

@@ -65,12 +65,20 @@ public class GameManager : MonoBehaviour
 
     
 
-    public void Restart()
+    public void RestartLevel()
     {
         stayOffice = false;
         paused = false;
         inVoid = false;
         inCloset = false;
         inBreakRoom = false;
+        timesRestarted += 1;
     }
+
+    public void GameReset()
+    {
+        RestartLevel();
+    }
+    
+    
 }
