@@ -444,7 +444,7 @@ MonoBehaviour:
   clickAudioClip: {fileID: 8300000, guid: 96b4329480e46534b9ff09157b032544, type: 3}
   clickingSound1: {fileID: 8300000, guid: c10cea604d367445d8024a0331ed7100, type: 3}
   clickingSound2: {fileID: 8300000, guid: 7604d4c7ac3a64ed282b6cc5af0724ff, type: 3}
-  sodaVended: 0
+  doorjiggle: {fileID: 8300000, guid: d9e56b7c12098444e98286e9671065f5, type: 3}
   aM: {fileID: 0}
   doorFourThirtyClicks: 0
   doorFourSeventeenClicks: 0

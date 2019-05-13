@@ -126,10 +126,7 @@ public class Achievement: MonoBehaviour
         }
         
         //soda achievement
-        if (rC.sodaVended)
-        {
-            Activate(soda);
-        }
+       
         
         //greg achievement
         if (isGreg)

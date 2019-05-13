@@ -2,30 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StayInOffice : MonoBehaviour
+public class inBreakRoomTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
     
     private bool _Audioplayed1;
     private bool _Audioplayed2;
     private bool _Audioplayed3;
     private bool _Audioplayed4;
-    private bool _Audioplayed5;
     public AudioClip audioFile1;
     public AudioClip audioFile2;
     public AudioClip audioFile3;
     public AudioClip audioFile4;
-    public AudioClip audioFile5;
     public float timerCap1;
     public float timerCap2;
     public float timerCap3;
     public float timerCap4;
-    public float timerCap5;
     public float standStillTimer;
     public GameObject stanley;
     
     public GameManager gM;
-    
+    // Start is called before the first frame update
     void Start()
     {
         gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
@@ -45,6 +41,7 @@ public class StayInOffice : MonoBehaviour
         
         if (standStillTimer > timerCap1)
         {
+            print("play audio");
             if (_Audioplayed1 == false)
             {
                 Debug.Log("lineplays");
@@ -85,26 +82,18 @@ public class StayInOffice : MonoBehaviour
                 _Audioplayed4 = true;
             }
         }
-        if (standStillTimer > timerCap5)
-        {
-            if (_Audioplayed5 == false)
-            {
-                stanley.GetComponent<AudioSource>().Pause();
-                stanley.GetComponent<AudioSource>().clip = audioFile5;
-                stanley.GetComponent<AudioSource>().Play();
-                _Audioplayed5 = true;
-            }
-        }
-
-        
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Stanley")
         {
             standStillTimer = standStillTimer + 1 * Time.deltaTime;
+            print("stan man in break room");
         }
+        print("someone in break room");
+
+        gM.inBreakRoom = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -113,5 +102,8 @@ public class StayInOffice : MonoBehaviour
         {
             standStillTimer = 0;
         }
+        print("someone left break room");
+
+        gM.inBreakRoom = false;
     }
 }

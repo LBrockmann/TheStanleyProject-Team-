@@ -13,9 +13,9 @@ public class Raycast : MonoBehaviour
     public AudioClip clickAudioClip;
     public AudioClip clickingSound1;
     public AudioClip clickingSound2;
+    public AudioClip doorjiggle;
     private bool _audioPlayed;
 
-    public bool sodaVended = false;
 
     public Achievement aM;
     public int doorFourThirtyClicks = 0;
@@ -47,19 +47,39 @@ public class Raycast : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                clicking();
+                
                 _clickCount++;
                 if (hit.transform.tag == "Door" || hit.transform.tag == "Door430" || hit.transform.tag == "Door417" || hit.transform.tag == "Door437"
                     || hit.transform.tag == "Door419" || hit.transform.tag == "Door416" || hit.transform.tag == "OfficeDoor" || hit.transform.tag == "Door415") //kate added these doors for the 430 acheivemnt
                 {
                     print("hit door");
+                    stanleyObject.GetComponent<AudioSource>().PlayOneShot(doorjiggle);
                 }
-                if (hit.transform.tag == "Vending" && !sodaVended)
+                else
                 {
-                    print("get soda");
-                    sodaVended = true;
-
+                    clicking();
                 }
+
+                if (hit.transform.tag == "VoidDoor")
+                {
+                    hit.transform.GetComponentInParent<DoorManager>().openDoor(); 
+                    gM.inVoid = true;
+                }
+                
+                if (hit.transform.tag == "ClosetDoor")
+                {
+                    if (gM.inCloset)
+                    {
+                        gM.inCloset = false;
+                        hit.transform.GetComponentInParent<DoorManager>().closeDoor();
+                    }
+                    else
+                    {
+                        gM.inCloset = true;
+                        hit.transform.GetComponentInParent<DoorManager>().openDoor();
+                    }
+                }
+                
                 if (hit.transform.tag == "Door430")
                 {
                     print("Door 430");
@@ -151,11 +171,16 @@ public class Raycast : MonoBehaviour
                     }
                 }
 
-                if (hit.transform.tag == "OfficeDoor" && !gM.leftOffice)
+                else if (hit.transform.tag == "OfficeDoor")
                 {
-                    hit.transform.GetComponent<DoorManager>().closeDoor();       //this lets stanley stay in his office - kate
+                    hit.transform.GetComponentInParent<DoorManager>().closeDoor();     //this lets stanley stay in his office - kate
+                    print("officeDoor");
+                    gM.stayOffice = true;
                 }
-                
+                else
+                {
+                    
+                }
                 
             }
             
@@ -193,4 +218,6 @@ public class Raycast : MonoBehaviour
             stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickingSound2);
         }
     }
+    
+    
 }

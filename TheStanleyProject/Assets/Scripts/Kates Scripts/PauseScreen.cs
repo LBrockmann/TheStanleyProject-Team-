@@ -37,6 +37,7 @@ public class PauseScreen : MonoBehaviour
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = false;
             Cursor.lockState = CursorLockMode.None;
             stanley.GetComponent<CharacterMovement2>().enabled = false;
+            stanley.GetComponent<AudioSource>().Pause();
         }
         else
         {
@@ -62,11 +63,14 @@ public class PauseScreen : MonoBehaviour
 
     public void Restart()
     {
+        gM.Restart();
         SceneManager.LoadScene("MasterOffice");
+        
     }
 
     public void LoadMenu()
     {
+        gM.Restart();
         SceneManager.LoadScene("MenuScene");
     }
 }

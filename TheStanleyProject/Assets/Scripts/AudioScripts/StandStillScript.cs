@@ -10,6 +10,8 @@ public class StandStillScript : MonoBehaviour
     private bool _playClip1;
     private bool _stanleystandsstill;
     private bool _Audioplayed;
+    
+    public GameManager gM;
    
 
     public float timerCap1;
@@ -17,6 +19,7 @@ public class StandStillScript : MonoBehaviour
     void Start()
     {
         _Audioplayed = false;
+        gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -32,9 +35,13 @@ public class StandStillScript : MonoBehaviour
             standStillTimer = 0;
         }
 
-        if (_stanleystandsstill == true)
+        if (_stanleystandsstill && !gM.inCloset && !gM.inBreakRoom &&  !gM.inVoid && !gM.stayOffice && !gM.paused)
         {
             standStillTimer = standStillTimer + 1 * Time.deltaTime;
+        }
+        else
+        {
+            standStillTimer = 0;
         }
 
         if (standStillTimer > timerCap1)

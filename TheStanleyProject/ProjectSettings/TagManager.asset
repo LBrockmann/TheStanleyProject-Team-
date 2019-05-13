@@ -15,6 +15,8 @@ TagManager:
   - Door416
   - OfficeDoor
   - Door415
+  - VoidDoor
+  - ClosetDoor
   layers:
   - Default
   - TransparentFX
