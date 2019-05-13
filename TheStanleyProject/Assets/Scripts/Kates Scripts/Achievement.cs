@@ -113,9 +113,10 @@ public class Achievement: MonoBehaviour
         //random acheivement
         achievementNoti.gameObject.SetActive(false);
         float i = Random.Range(0.0f, 1.0f);
-        if (i > .5)
+        if (i > 0)
         {
            Activate(random);
+           print("activate");
         }
         
         Reset();
@@ -160,6 +161,7 @@ public class Achievement: MonoBehaviour
 
         if (!jump.achieved && jump.activation > 2)
         {
+            print("jump");
             Activate(jump);
         }
         
@@ -187,17 +189,15 @@ public class Achievement: MonoBehaviour
 
     void Reset()
     {
-        achievementNoti.gameObject.SetActive(false);
-        bigText.gameObject.SetActive(false);
-        smallTest.gameObject.SetActive(false);
+        achievementNoti.sprite = null;
+        bigText.text = "";
+        smallTest.text = "";
     }
 
     public void Activate(Achievements a)
     {                                                                  //you have to manually set all the pictures here it sucks!!!!!!!!
         timer = 0;
-        achievementNoti.gameObject.SetActive(true);
-        bigText.gameObject.SetActive(true);
-        smallTest.gameObject.SetActive(true);
+        print(a.picNumber);
 
         if (a.picNumber == 1)
         {
@@ -224,6 +224,7 @@ public class Achievement: MonoBehaviour
         else
         {
             achievementNoti.sprite = placeHolder;
+            print("load placeholder");
         }
 
         bigText.text = a.notiText;

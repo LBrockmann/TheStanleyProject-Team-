@@ -95,8 +95,8 @@ public class StayInOffice : MonoBehaviour
                 stanley.GetComponent<AudioSource>().Pause();
                 stanley.GetComponent<AudioSource>().clip = audioFile5;
                 stanley.GetComponent<AudioSource>().Play();
-                //aM.Activate(aM.deathOffice);
-                //StartCoroutine(Restart());
+                aM.Activate(aM.deathOffice);
+                StartCoroutine(Restart());
                 _Audioplayed5 = true;
             }
         }
