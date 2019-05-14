@@ -38,6 +38,7 @@ public class PauseScreen : MonoBehaviour
         {
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = false;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             stanley.GetComponent<CharacterMovement2>().enabled = false;
             stanley.GetComponent<AudioSource>().Pause();
         }
@@ -45,6 +46,7 @@ public class PauseScreen : MonoBehaviour
         {
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = true;
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             stanley.GetComponent<CharacterMovement2>().enabled = true;
         }
     }
