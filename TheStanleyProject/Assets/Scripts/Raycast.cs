@@ -218,7 +218,8 @@ public class Raycast : MonoBehaviour
         {
             if (_audioPlayed == false && !stanleyObject.GetComponent<AudioSource>().isPlaying && !gM.inCloset && !gM.stayOffice && !gM.inVoid)
             {
-                stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickAudioClip);
+                stanleyObject.GetComponent<AudioSource>().clip = clickAudioClip;
+                stanleyObject.GetComponent<AudioSource>().Play();
                 _audioPlayed = true;
             }
 

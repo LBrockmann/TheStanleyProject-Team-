@@ -59,7 +59,7 @@ public class BroomCloset : MonoBehaviour
          
         if (standStillTimer > timerCap1)
         {
-            print("play audio");
+            //print("play audio");
             if (_Audioplayed1 == false)
             {
                 Debug.Log("lineplays");

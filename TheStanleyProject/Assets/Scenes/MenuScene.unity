@@ -1508,7 +1508,6 @@ MonoBehaviour:
   diedInOffice: 0
   diedinWarehouse: 0
   diedinVoid: 0
-  mouseSensitivity: 1
   timesRestarted: 0
   paperOrdered: 0
   phoneCall: 0

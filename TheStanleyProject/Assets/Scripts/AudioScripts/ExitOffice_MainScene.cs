@@ -91,6 +91,7 @@ public class ExitOffice_MainScene : MonoBehaviour
     IEnumerator GoToMetting(Collider other)
     {
         yield return new WaitForSeconds(seconds);
+        print("b2");
         other.GetComponent<AudioSource>().clip = b2;
         other.GetComponent<AudioSource>().Play();
     }

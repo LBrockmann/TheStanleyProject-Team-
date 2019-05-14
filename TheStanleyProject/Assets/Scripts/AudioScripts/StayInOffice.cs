@@ -104,11 +104,11 @@ public class StayInOffice : MonoBehaviour
     
     IEnumerator Restart()
     { 
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(18.0f);
         aM.Activate(aM.deathOffice);
         gM.diedInOffice = true;
         
-        yield return new WaitForSeconds(seconds - 10.0f);
+        yield return new WaitForSeconds(seconds - 18.0f);
         gM.RestartLevel();
         SceneManager.LoadScene("MasterOffice");
     }
