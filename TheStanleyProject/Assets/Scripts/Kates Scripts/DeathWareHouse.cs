@@ -9,6 +9,7 @@ public class DeathWareHouse : MonoBehaviour
     
     public GameManager gM;
 
+    public float seconds1 = 1.0f;
     public float seconds = 1.0f;
 
     public bool activated = false;
@@ -30,8 +31,6 @@ public class DeathWareHouse : MonoBehaviour
     {
         if (other.tag == "Stanley" && !activated)
         {
-            aM.Activate(aM.deathWarehouse);
-            gM.diedinWarehouse = true;
             activated = true;
             StartCoroutine(Restart());
         }
@@ -39,6 +38,11 @@ public class DeathWareHouse : MonoBehaviour
 
     IEnumerator Restart()
     {
+        yield return new WaitForSeconds(seconds1);
+        
+        aM.Activate(aM.deathWarehouse);
+        gM.diedinWarehouse = true;
+        
         yield return new WaitForSeconds(seconds);
         
         gM.RestartLevel();

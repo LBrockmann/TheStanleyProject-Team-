@@ -155,7 +155,7 @@ public class Achievement: MonoBehaviour
         if (!randomTested && askedForGreg)
         {
             float i = Random.Range(0.0f, 1.0f);
-            if (i > .5)
+            if (i > .7)
             {
                 Activate(random);
             }

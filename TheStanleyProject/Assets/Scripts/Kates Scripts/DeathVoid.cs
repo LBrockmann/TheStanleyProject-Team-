@@ -9,6 +9,7 @@ public class DeathVoid : MonoBehaviour
     
     public GameManager gM;
 
+    public float seconds1 = 1.0f;
     public float seconds = 1.0f;
 
     public bool activated = false;
@@ -30,8 +31,7 @@ public class DeathVoid : MonoBehaviour
     {
         if (other.tag == "Stanley" && !activated)
         {
-            aM.Activate(aM.deathVoid);
-            gM.diedinVoid = true;
+            
             activated = true;
             StartCoroutine(Restart());
         }
@@ -39,6 +39,11 @@ public class DeathVoid : MonoBehaviour
 
     IEnumerator Restart()
     {
+        yield return new WaitForSeconds(seconds1);
+        
+        aM.Activate(aM.deathVoid);
+        gM.diedinVoid = true;
+        
         yield return new WaitForSeconds(seconds);
         
         gM.RestartLevel();
