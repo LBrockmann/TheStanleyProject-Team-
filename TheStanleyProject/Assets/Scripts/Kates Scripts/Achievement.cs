@@ -89,13 +89,13 @@ public class Achievement: MonoBehaviour
     }
 
     public Achievements jump = new Achievements("You cant jump","No seriously we never added that",1);
-    public Achievements random = new Achievements("Youre Lucky", "You did nothing to get this",2);
+    public Achievements random = new Achievements("Youre Lucky", "Thanks random chance!",2);
     public Achievements greg = new Achievements("You are Greg", "Greg Stanley Heffernan",4);
-    public Achievements trophy = new Achievements("You beat this game", "But you lost The Game",5);
+    public Achievements trophy = new Achievements("You beat this game", "was it worth it?",5);
     public Achievements deathWarehouse = new Achievements("You Died", "This is what happens when u dont listen",6);
-    public Achievements deathVoid = new Achievements("You Died", "This is what happens when u listen",6);
-    public Achievements deathBroomCloset = new Achievements("You Died", "You married the broom and lived happily ever after until you starved to death",6);
-    public Achievements deathOffice = new Achievements("You Died", "The whole point of this game is to leave the office and you ruined it",6);
+    public Achievements deathVoid = new Achievements("You Died", "You reached the scope of this project",6);
+    public Achievements deathBroomCloset = new Achievements("You Died", "You married the broom and lived happily ever after",6);
+    public Achievements deathOffice = new Achievements("You Died", "The whole point of this game is to leave the office",6);
     public Achievements fourThirty = new Achievements("You did it?", "That was a complete waste of time",7);
     
     private void Awake()
