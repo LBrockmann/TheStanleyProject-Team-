@@ -233,14 +233,21 @@ public class Raycast : MonoBehaviour
     {
         int x = Random.Range(0, 10);
 
-        if (x < 5)
+        if (!stanleyObject.GetComponent<AudioSource>().isPlaying)
         {
-            stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickingSound1);
+            if (x < 5)
+            {
+                stanleyObject.GetComponent<AudioSource>().clip = clickingSound1;
+                stanleyObject.GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                stanleyObject.GetComponent<AudioSource>().clip = clickingSound2;
+                stanleyObject.GetComponent<AudioSource>().Play();
+            } 
         }
-        else
-        {
-            stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickingSound2);
-        }
+
+        
     }
     
     

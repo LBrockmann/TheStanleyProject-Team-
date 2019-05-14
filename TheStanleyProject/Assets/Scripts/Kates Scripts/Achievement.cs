@@ -22,6 +22,8 @@ public class Achievement: MonoBehaviour
 
     public GameObject cautionTape1;
     public GameObject cautionTape2;
+    public GameObject cautionTape3;
+    public GameObject cautionTape4;
 
     public bool randomTested;
     
@@ -50,6 +52,8 @@ public class Achievement: MonoBehaviour
     public bool gregActivated = false;
 
     public GameObject askGregPanel;
+
+    public bool gameWon = false;
     
     //achiement array
     
@@ -147,6 +151,8 @@ public class Achievement: MonoBehaviour
             deathBroomCloset.achieved = true;
             cautionTape1.SetActive(true);
             cautionTape2.SetActive(true);
+            cautionTape3.SetActive(true);
+            cautionTape4.SetActive(true);
         }
     }
 
@@ -202,9 +208,10 @@ public class Achievement: MonoBehaviour
         }
         //trophy achievment
         if (deathWarehouse.achieved && deathOffice.achieved && deathVoid.achieved && 
-            deathBroomCloset.achieved)
+            deathBroomCloset.achieved && !gameWon)
         {
             StartCoroutine(Trophy());
+            gameWon = true;
         }
         //430 acheivement
         if (fourThirty.activation == 12)

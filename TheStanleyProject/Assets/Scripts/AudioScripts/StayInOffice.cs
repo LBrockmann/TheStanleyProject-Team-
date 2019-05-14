@@ -95,8 +95,6 @@ public class StayInOffice : MonoBehaviour
                 stanley.GetComponent<AudioSource>().Pause();
                 stanley.GetComponent<AudioSource>().clip = audioFile5;
                 stanley.GetComponent<AudioSource>().Play();
-                aM.Activate(aM.deathOffice);
-                gM.diedInOffice = true;
                 StartCoroutine(Restart());
                 _Audioplayed5 = true;
             }
@@ -106,8 +104,11 @@ public class StayInOffice : MonoBehaviour
     
     IEnumerator Restart()
     { 
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(10.0f);
+        aM.Activate(aM.deathOffice);
+        gM.diedInOffice = true;
         
+        yield return new WaitForSeconds(seconds - 10.0f);
         gM.RestartLevel();
         SceneManager.LoadScene("MasterOffice");
     }
