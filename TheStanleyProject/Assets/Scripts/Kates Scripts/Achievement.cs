@@ -20,6 +20,9 @@ public class Achievement: MonoBehaviour
     public Sprite deathPic;//6
     public Sprite fourThirtyPic;//7
 
+    public GameObject cautionTape1;
+    public GameObject cautionTape2;
+
     public bool randomTested;
     
     //endings list
@@ -142,6 +145,8 @@ public class Achievement: MonoBehaviour
         if (gM.diedInBroomCloset)
         {
             deathBroomCloset.achieved = true;
+            cautionTape1.SetActive(true);
+            cautionTape2.SetActive(true);
         }
     }
 

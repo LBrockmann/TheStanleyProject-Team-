@@ -71,10 +71,9 @@ public class Raycast : MonoBehaviour
                     gM.inVoid = true;
                 }
                 
-                if (hit.transform.tag == "ClosetDoor" && !bC1.stuckInCloset && !bC2.stuckInCloset)
+                if (hit.transform.tag == "ClosetDoor" && !bC1.stuckInCloset && !bC2.stuckInCloset && !gM.diedInBroomCloset)
                 {
-                    if (gM.inCloset)
-                    {
+
                         if (hit.transform.GetComponentInParent<DoorManager>().open)
                         {
                             hit.transform.GetComponentInParent<DoorManager>().closeDoor();
@@ -83,11 +82,6 @@ public class Raycast : MonoBehaviour
                         {
                             hit.transform.GetComponentInParent<DoorManager>().openDoor();
                         }
-                    }
-                    else
-                    {
-                        hit.transform.GetComponentInParent<DoorManager>().openDoor();
-                    }
                 }
                 
                 if (hit.transform.tag == "Door430")
@@ -96,13 +90,14 @@ public class Raycast : MonoBehaviour
                     doorFourThirtyClicks += 1;
                     if (doorFourThirtyClicks > 4 && aM.fourThirty.activation == 0)
                     {  
-                        if (!stanleyObject.GetComponent<AudioSource>().isPlaying)
+                        if (stanleyObject.GetComponent<AudioSource>().isPlaying) ///this isnt working to keep it from interrupting, idk why so i have it set to true
                         {
                             aM.fourThirty.activation = 1;
                             doorFourThirtyClicks = 0;
                             fT.playAudioClipOne();
+                            //print("audio should play");
                         }
-                        
+                        doorFourThirtyClicks = 0;
                     }
                     else if (doorFourThirtyClicks > 19 && aM.fourThirty.activation == 1)
                     {

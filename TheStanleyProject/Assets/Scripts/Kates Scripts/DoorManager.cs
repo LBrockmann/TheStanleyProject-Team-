@@ -32,13 +32,13 @@ public class DoorManager : MonoBehaviour
         //openclsoe bools
 
         public bool open;
-        public bool closed;
     
         void Start()
         {
             if (startOpen)
             {
                 opening = true;
+                open = true;
             }
     
             if (turnedRight || turnedLeft)
@@ -87,15 +87,13 @@ public class DoorManager : MonoBehaviour
                 if (currentRotation > 0 && currentRotation < 270)
                 {
                     opening = false;
-                    open = true;
-                    closed = false;
+                    
                 }
     
                 if (currentRotation < 269)
                 {
                     closing = false;
-                    closed = true;
-                    open = true;
+                    
                 }
             }
     
@@ -104,15 +102,13 @@ public class DoorManager : MonoBehaviour
                 if (currentRotation > 90)
                 {
                     opening = false;
-                    open = true;
-                    closed = false;
+                    
                 }
     
                 if (currentRotation > 89 && currentRotation < 270)
                 {
                     closing = false;
-                    closed = true;
-                    open = true;
+                    
                 }
             }
 
@@ -121,15 +117,13 @@ public class DoorManager : MonoBehaviour
                 if (currentRotation < 180)
                 {
                     opening = false;
-                    open = true;
-                    closed = false;
+                    
                 }
     
                 if (currentRotation > 268)
                 {
                     closing = false;
-                    open = false;
-                    closed = true;
+                    
                 }
             }
             //move
@@ -152,14 +146,16 @@ public class DoorManager : MonoBehaviour
             openTimer = true;
 
         }
+        open = true;
     }
 
     public void closeDoor()
     {
         closing = true;
-        if (!gameObject.GetComponent<AudioSource>().isPlaying && !closed)
+        if (!gameObject.GetComponent<AudioSource>().isPlaying && open)
         {
             closeTimer = true;
         }
+        open = false;
     }
 }
