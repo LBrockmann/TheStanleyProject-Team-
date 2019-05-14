@@ -204,7 +204,7 @@ public class Achievement: MonoBehaviour
         //430 acheivement
         if (fourThirty.activation == 12)
         {
-            Activate(fourThirty);
+            //Activate(fourThirty);
         }
         
     }

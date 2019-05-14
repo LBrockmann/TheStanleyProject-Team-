@@ -31,6 +31,8 @@ public class Raycast : MonoBehaviour
     public BroomCloset bC1;
     public BroomCloset bC2;
 
+    public FourThirty fT;
+
     void Start()
     {
         _audioPlayed = false;
@@ -51,9 +53,8 @@ public class Raycast : MonoBehaviour
             {
 
                 
-                _clickCount++;
                 if (hit.transform.tag == "Door" || hit.transform.tag == "Door430" || hit.transform.tag == "Door417" || hit.transform.tag == "Door437"
-                    || hit.transform.tag == "Door419" || hit.transform.tag == "Door416" || hit.transform.tag == "OfficeDoor" || hit.transform.tag == "Door415") //kate added these doors for the 430 acheivemnt
+                     || hit.transform.tag == "Door416" || hit.transform.tag == "OfficeDoor" || hit.transform.tag == "Door415") //kate added these doors for the 430 acheivemnt
                 {
                     print("hit door");
                     stanleyObject.GetComponent<AudioSource>().PlayOneShot(doorjiggle);
@@ -61,13 +62,13 @@ public class Raycast : MonoBehaviour
                 else
                 {
                     clicking();
+                    _clickCount++;
                 }
 
                 if (hit.transform.tag == "VoidDoor")
                 {
                     hit.transform.GetComponentInParent<DoorManager>().openDoor(); 
                     gM.inVoid = true;
-                    aM.Activate(aM.deathVoid);
                 }
                 
                 if (hit.transform.tag == "ClosetDoor" && !bC1.stuckInCloset && !bC2.stuckInCloset)
@@ -94,23 +95,32 @@ public class Raycast : MonoBehaviour
                     print("Door 430");
                     doorFourThirtyClicks += 1;
                     if (doorFourThirtyClicks > 4 && aM.fourThirty.activation == 0)
-                    {
-                        aM.fourThirty.activation = 1;
-                        doorFourThirtyClicks = 0;
+                    {  
+                        if (!stanleyObject.GetComponent<AudioSource>().isPlaying)
+                        {
+                            aM.fourThirty.activation = 1;
+                            doorFourThirtyClicks = 0;
+                            fT.playAudioClipOne();
+                        }
+                        
                     }
                     else if (doorFourThirtyClicks > 19 && aM.fourThirty.activation == 1)
                     {
                         aM.fourThirty.activation = 2;
                         doorFourThirtyClicks = 0;
+                        fT.playAudioClipTwo();
                     }
                     else if (doorFourThirtyClicks > 49 && aM.fourThirty.activation == 2)
                     {
                         aM.fourThirty.activation = 3;
                         doorFourThirtyClicks = 0;
+                        fT.playAudioClipThree();
                     } else if (doorFourThirtyClicks > 4 && aM.fourThirty.activation == 11)
                     {
                         aM.fourThirty.activation = 12;
                         doorFourThirtyClicks = 0;
+                        fT.playAudioClipTwe();
+                        aM.Activate(aM.fourThirty);
                     } 
                 }
                 if (hit.transform.tag == "Door417")
@@ -121,11 +131,13 @@ public class Raycast : MonoBehaviour
                     {
                         aM.fourThirty.activation = 4;
                         doorFourSeventeenClicks = 0;
+                        fT.playAudioClipFour();
                     }
                     if (doorFourSeventeenClicks > 0 && aM.fourThirty.activation == 8)
                     {
                         aM.fourThirty.activation = 9;
                         doorFourSeventeenClicks = 0;
+                        fT.playAudioClipNine();
                     }
                 }
                 if (hit.transform.tag == "Door437")
@@ -136,12 +148,14 @@ public class Raycast : MonoBehaviour
                     {
                         aM.fourThirty.activation = 5;
                         doorFourThirtySevenClicks = 0;
+                        fT.playAudioClipFive();
                     }
 
                     if (doorFourThirtySevenClicks > 0 && aM.fourThirty.activation == 6)
                     {
                         aM.fourThirty.activation = 7;
                         doorFourThirtySevenClicks = 0;
+                        fT.playAudioClipSeven();
                     }
                 }
                 if (hit.transform.tag == "Door415")
@@ -152,6 +166,7 @@ public class Raycast : MonoBehaviour
                     {
                         aM.fourThirty.activation = 6;
                         doorFourFifteenClicks = 0;
+                        fT.playAudioClipSix();
                     }
                 }
                 if (hit.transform.tag == "Door416")
@@ -162,6 +177,7 @@ public class Raycast : MonoBehaviour
                     {
                         aM.fourThirty.activation = 10;
                         doorFourSixteenClicks = 0;
+                        fT.playAudioClipTen();
                     }
                 }
                 if (hit.transform.tag == "Copier")
@@ -172,11 +188,13 @@ public class Raycast : MonoBehaviour
                     {
                         aM.fourThirty.activation = 8;
                         copierClicks = 0;
+                        fT.playAudioClipEight();
                     }
                     if (copierClicks > 0 && aM.fourThirty.activation == 10)
                     {
                         aM.fourThirty.activation = 11;
                         copierClicks = 0;
+                        fT.playAudioClipEle();
                     }
                 }
 
@@ -203,12 +221,14 @@ public class Raycast : MonoBehaviour
 
         if (_clickCount >= clickCap)
         {
-            if (_audioPlayed == false && stanleyObject.GetComponent<AudioSource>().isPlaying == false && !gM.inCloset && !gM.stayOffice && !gM.inVoid)
+            if (_audioPlayed == false && !stanleyObject.GetComponent<AudioSource>().isPlaying && !gM.inCloset && !gM.stayOffice && !gM.inVoid)
             {
                 stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickAudioClip);
                 _audioPlayed = true;
             }
-            
+
+            _clickCount = 0;
+
         }
         
         

@@ -46,7 +46,7 @@ public class StandStillScript : MonoBehaviour
 
         if (standStillTimer > timerCap1)
         {
-            if (_Audioplayed == false)
+            if (_Audioplayed == false && !this.GetComponent<AudioSource>().isPlaying)
             {
                 this.GetComponent<AudioSource>().Pause();
                 this.GetComponent<AudioSource>().clip = audioFile1;
