@@ -15,10 +15,11 @@ public class Cursor_Lin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+     
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         mousePosition.z = -4;
         transform.position= mousePosition;
+
     }
 }
