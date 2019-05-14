@@ -8,7 +8,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
     public Vector2 clampInDegrees = new Vector2(360, 180);
     public bool lockCursor;
-    public Vector2 sensitivity = new Vector2(2, 2);
+    public static Vector2 sensitivity = new Vector2(2, 2);
     public Vector2 smoothing = new Vector2(3, 3);
     public Vector2 targetDirection;
     public Vector2 targetCharacterDirection;
@@ -19,6 +19,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
     void Start()
     {
+        sensitivity = new Vector2(GameManager.mouseSensitivity, GameManager.mouseSensitivity);
         // Set target direction to the camera's initial orientation.
         targetDirection = transform.localRotation.eulerAngles;
         //lockCursor = true;
@@ -29,6 +30,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
     void Update()
     {
+       
         // Ensure the cursor is always locked when set
         if (lockCursor)
         {
@@ -73,5 +75,10 @@ public class SimpleSmoothMouseLook : MonoBehaviour
             var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.InverseTransformDirection(Vector3.up));
             transform.localRotation *= yRotation;
         }
+
+    }
+    public void AdjustMouse(float newMouseSen)
+    {
+        sensitivity = new Vector2(newMouseSen, newMouseSen);
     }
 }

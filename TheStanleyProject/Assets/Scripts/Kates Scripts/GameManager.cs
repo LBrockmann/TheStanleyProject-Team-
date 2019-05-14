@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
    
     //to edit moues sense
 
-    public float mouseSensitivity = 1;
+    public static float mouseSensitivity = 1;
     
     
     //scene loading manager
@@ -93,6 +93,9 @@ public class GameManager : MonoBehaviour
         phoneAnswered = false;
         paperOrdered = false;
     }
-    
-    
+    public void AdjustMouse(float newMouseSen)
+    {
+        mouseSensitivity = newMouseSen;
+    }
+
 }
