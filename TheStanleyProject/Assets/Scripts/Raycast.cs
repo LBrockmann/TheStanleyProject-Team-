@@ -74,7 +74,14 @@ public class Raycast : MonoBehaviour
                 {
                     if (gM.inCloset)
                     {
-                        hit.transform.GetComponentInParent<DoorManager>().closeDoor();
+                        if (hit.transform.GetComponentInParent<DoorManager>().open)
+                        {
+                            hit.transform.GetComponentInParent<DoorManager>().closeDoor();
+                        }
+                        else
+                        {
+                            hit.transform.GetComponentInParent<DoorManager>().openDoor();
+                        }
                     }
                     else
                     {
@@ -196,7 +203,7 @@ public class Raycast : MonoBehaviour
 
         if (_clickCount >= clickCap)
         {
-            if (_audioPlayed == false && stanleyObject.GetComponent<AudioSource>().isPlaying == false)
+            if (_audioPlayed == false && stanleyObject.GetComponent<AudioSource>().isPlaying == false && !gM.inCloset && !gM.stayOffice && !gM.inVoid)
             {
                 stanleyObject.GetComponent<AudioSource>().PlayOneShot(clickAudioClip);
                 _audioPlayed = true;

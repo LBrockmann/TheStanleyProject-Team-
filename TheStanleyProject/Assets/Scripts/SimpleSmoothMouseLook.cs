@@ -21,7 +21,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
     {
         // Set target direction to the camera's initial orientation.
         targetDirection = transform.localRotation.eulerAngles;
-        lockCursor = true;
+        //lockCursor = true;
         // Set target direction for the character body to its inital state.
         if (characterBody)
             targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;

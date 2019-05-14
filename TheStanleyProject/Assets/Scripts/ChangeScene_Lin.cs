@@ -10,4 +10,10 @@ public class ChangeScene_Lin : MonoBehaviour
         SceneManager.LoadScene("MasterOffice");
 
     }
+ 
+ //added another button function
+ public void Quit()
+    {
+        Application.Quit();
+    }
 }

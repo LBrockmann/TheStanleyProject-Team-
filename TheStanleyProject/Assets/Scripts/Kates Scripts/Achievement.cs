@@ -44,6 +44,8 @@ public class Achievement: MonoBehaviour
 
     public bool isGreg = false;
 
+    public bool gregActivated = false;
+
     public GameObject askGregPanel;
     
     //achiement array
@@ -158,7 +160,7 @@ public class Achievement: MonoBehaviour
         
         if (gM.timesRestarted < 1 && !askedForGreg)
         {
-            //AskForGreg();
+            AskForGreg();
         }
         //reset timer
         if (timer > notiTimer)
@@ -188,9 +190,10 @@ public class Achievement: MonoBehaviour
        
         
         //greg achievement
-        if (isGreg)
+        if (isGreg && !gregActivated)
         {
             Activate(greg);
+            gregActivated = true;
         }
         //trophy achievment
         if (deathWarehouse.achieved && deathOffice.achieved && deathVoid.achieved && 
