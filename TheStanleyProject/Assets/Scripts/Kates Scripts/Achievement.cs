@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Achievement: MonoBehaviour
@@ -18,7 +19,8 @@ public class Achievement: MonoBehaviour
     public Sprite trophyPic;//5
     public Sprite deathPic;//6
     public Sprite fourThirtyPic;//7
-    
+
+    public bool randomTested;
     
     //endings list
     //u never listened
@@ -43,6 +45,23 @@ public class Achievement: MonoBehaviour
     public bool isGreg = false;
 
     public GameObject askGregPanel;
+    
+    //achiement array
+    
+    public Achievements[] allofThem = new Achievements[9];
+    
+    //singleton managment
+    
+    private static Achievement _instance;
+
+    public static Achievement Instance
+    
+    {
+        get { return _instance; }
+    }
+    
+    //win managment
+    public float seconds = 1.0f;
     
     public class Achievements
     {
@@ -69,34 +88,74 @@ public class Achievement: MonoBehaviour
 
     public Achievements jump = new Achievements("You cant jump","No seriously we never added that",1);
     public Achievements random = new Achievements("Youre Lucky", "You did nothing to get this",2);
-    public Achievements soda = new Achievements("You Thirsty?", "That was your last dollar",3);
     public Achievements greg = new Achievements("You are Greg", "Greg Stanley Heffernan",4);
     public Achievements trophy = new Achievements("You beat this game", "But you lost The Game",5);
     public Achievements deathWarehouse = new Achievements("You Died", "This is what happens when u dont listen",6);
-    public Achievements deathUpstairs = new Achievements("You Died", "This is what happens when u listen",6);
+    public Achievements deathVoid = new Achievements("You Died", "This is what happens when u listen",6);
     public Achievements deathBroomCloset = new Achievements("You Died", "You married the broom and lived happily ever after until you starved to death",6);
     public Achievements deathOffice = new Achievements("You Died", "The whole point of this game is to leave the office and you ruined it",6);
     public Achievements fourThirty = new Achievements("You did it?", "That was a complete waste of time",7);
-
+    
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+    }
 
     private void Start()
     {
         //game manager assignment
         gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         
-        //random acheivement
-        achievementNoti.gameObject.SetActive(false);
-        float i = Random.Range(0.0f, 1.0f);
-        if (i > .5)
-        {
-           Activate(random);
-        }
-        
+        //random acheivement 
         Reset();
+        
+
+        allofThem[0] = jump;
+        allofThem[1] = random;
+        allofThem[2] = greg;
+        allofThem[3] = trophy;
+        allofThem[4] = deathWarehouse;
+        allofThem[5] = deathVoid;
+        allofThem[6] = deathBroomCloset;
+        allofThem[7] = deathOffice;
+        allofThem[8] = fourThirty;
+
+        if (gM.diedinVoid)
+        {
+            deathVoid.achieved = true;
+        }
+        if (gM.diedinWarehouse)
+        {
+            deathWarehouse.achieved = true;
+        }
+        if (gM.diedInOffice)
+        {
+            deathOffice.achieved = true;
+        }
+        if (gM.diedInBroomCloset)
+        {
+            deathBroomCloset.achieved = true;
+        }
     }
 
     void Update()
     {
+        if (!randomTested && askedForGreg)
+        {
+            float i = Random.Range(0.0f, 1.0f);
+            if (i > .5)
+            {
+                Activate(random);
+            }
+
+            randomTested = true;
+        }
+        
         if (gM.timesRestarted < 1 && !askedForGreg)
         {
             //AskForGreg();
@@ -126,10 +185,7 @@ public class Achievement: MonoBehaviour
         }
         
         //soda achievement
-        if (rC.sodaVended)
-        {
-            Activate(soda);
-        }
+       
         
         //greg achievement
         if (isGreg)
@@ -137,10 +193,10 @@ public class Achievement: MonoBehaviour
             Activate(greg);
         }
         //trophy achievment
-        if (deathWarehouse.achieved && deathOffice.achieved && deathUpstairs.achieved && 
+        if (deathWarehouse.achieved && deathOffice.achieved && deathVoid.achieved && 
             deathBroomCloset.achieved)
         {
-            Activate(trophy);
+            StartCoroutine(Trophy());
         }
         //430 acheivement
         if (fourThirty.activation == 12)
@@ -167,28 +223,28 @@ public class Achievement: MonoBehaviour
         if (a.picNumber == 1)
         {
             achievementNoti.sprite = jumpPic;
-        }if (a.picNumber == 2)
+        }else if (a.picNumber == 2)
         {
             achievementNoti.sprite = luckyPic;
-        }if (a.picNumber == 3)
+        }else if (a.picNumber == 3)
         {
             achievementNoti.sprite = sodaPic;
-        }if (a.picNumber == 4)
+        }else if (a.picNumber == 4)
         {
             achievementNoti.sprite = gregPic;
-        }if (a.picNumber == 5)
+        }else if (a.picNumber == 5)
         {
             achievementNoti.sprite = trophyPic;
-        }if (a.picNumber == 6)
+        }else if (a.picNumber == 6)
         {
             achievementNoti.sprite = deathPic;
-        }if (a.picNumber == 7)
+        }else if (a.picNumber == 7)
         {
             achievementNoti.sprite = fourThirtyPic;
-        }
-        else
+        }else
         {
             achievementNoti.sprite = placeHolder;
+            print("load placeholder");
         }
 
         bigText.text = a.notiText;
@@ -218,6 +274,20 @@ public class Achievement: MonoBehaviour
         askGregPanel.SetActive(false);
         pS.paused = false;
     }
+
+    public void GameReset()
+    {
+        for (int i = 0; i < allofThem.Length; i++)
+        {
+            allofThem[i].achieved = false;
+            allofThem[i].activation = 0;
+        }
+    }
    
-    
+    IEnumerator Trophy()
+    {
+        yield return new WaitForSeconds(seconds);
+        
+        Activate(trophy);
+    }
 }

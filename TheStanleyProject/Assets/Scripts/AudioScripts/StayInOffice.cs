@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StayInOffice : MonoBehaviour
 {
@@ -24,14 +25,26 @@ public class StayInOffice : MonoBehaviour
     public float standStillTimer;
     public GameObject stanley;
     
+    public GameManager gM;
+    public Achievement aM;
+    
+    public float seconds = 1.0f;
     void Start()
     {
-        
+        gM = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gM.stayOffice)
+        {
+            standStillTimer = standStillTimer + 1 * Time.deltaTime;
+        }
+        else
+        {
+            standStillTimer = 0;
+        }
         
         if (standStillTimer > timerCap1)
         {
@@ -82,26 +95,22 @@ public class StayInOffice : MonoBehaviour
                 stanley.GetComponent<AudioSource>().Pause();
                 stanley.GetComponent<AudioSource>().clip = audioFile5;
                 stanley.GetComponent<AudioSource>().Play();
+                aM.Activate(aM.deathOffice);
+                gM.diedInOffice = true;
+                StartCoroutine(Restart());
                 _Audioplayed5 = true;
             }
         }
-
         
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Stanley")
-        {
-            standStillTimer = standStillTimer + 1 * Time.deltaTime;
-        }
+    
+    IEnumerator Restart()
+    { 
+        yield return new WaitForSeconds(seconds);
+        
+        gM.RestartLevel();
+        SceneManager.LoadScene("MasterOffice");
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Stanley")
-        {
-            standStillTimer = 0;
-        }
-    }
+    
 }

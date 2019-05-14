@@ -10,7 +10,15 @@ public class GameManager : MonoBehaviour
 
     public bool paused = false;
     
-    public bool leftOffice;
+    public bool stayOffice;
+    public bool inVoid;
+    public bool inCloset;
+    public bool inBreakRoom;
+
+    public bool diedInBroomCloset;
+    public bool diedInOffice;
+    public bool diedinWarehouse;
+    public bool diedinVoid;
     
     
 
@@ -27,14 +35,28 @@ public class GameManager : MonoBehaviour
     public bool phoneAnswered = false;
     public bool paperReceived = false;
 
-   
-    // Start is called before the first frame update
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get { return _instance; }
+    }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+        }
+    }
+
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -48,8 +70,29 @@ public class GameManager : MonoBehaviour
 
     
 
-    void Restart()
+    public void RestartLevel()
     {
-        
+        stayOffice = false;
+        paused = false;
+        inVoid = false;
+        inCloset = false;
+        inBreakRoom = false;
+        timesRestarted += 1;
     }
+
+    public void GameReset()
+    {
+        RestartLevel();
+        timesRestarted = 0;
+        diedinVoid = false;
+        diedinWarehouse = false;
+        diedInOffice = false;
+        diedInBroomCloset = false;
+        phoneCall = false;
+        paperReceived = false;
+        phoneAnswered = false;
+        paperOrdered = false;
+    }
+    
+    
 }

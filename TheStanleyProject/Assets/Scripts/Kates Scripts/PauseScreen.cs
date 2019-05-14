@@ -10,6 +10,8 @@ public class PauseScreen : MonoBehaviour
     public GameManager gM;
 
     public GameObject stanley;
+    
+    public Achievement aM;
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class PauseScreen : MonoBehaviour
             stanley.GetComponentInChildren<SimpleSmoothMouseLook>().enabled = false;
             Cursor.lockState = CursorLockMode.None;
             stanley.GetComponent<CharacterMovement2>().enabled = false;
+            stanley.GetComponent<AudioSource>().Pause();
         }
         else
         {
@@ -62,11 +65,16 @@ public class PauseScreen : MonoBehaviour
 
     public void Restart()
     {
+        gM.RestartLevel();
         SceneManager.LoadScene("MasterOffice");
+        
     }
 
     public void LoadMenu()
     {
+        
+        aM.GameReset();
+        gM.GameReset();
         SceneManager.LoadScene("MenuScene");
     }
 }

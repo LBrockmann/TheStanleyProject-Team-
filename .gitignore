@@ -36,3 +36,6 @@ sysinfo.txt
 *.unitypackage
 TheStanleyProject/.idea/
 TheStanleyProject/Assets/Scenes/MasterOffice/LightingData.asset
+TheStanleyProject/Assets/Scenes/MasterOffice/LightingData.asset.meta
+TheStanleyProject/Assets/Scenes/MasterOffice/ReflectionProbe-0.exr
+TheStanleyProject/Assets/Scenes/MasterOffice/ReflectionProbe-0.exr.meta
